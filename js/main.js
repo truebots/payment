@@ -2458,6 +2458,9 @@
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
             crossDomain: true,
         
+            headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
             data: {
                 calendarId: query.calendarId,
                 bookingDate: selected_date.value,
