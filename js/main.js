@@ -2457,7 +2457,7 @@
             type: "POST",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
             crossDomain: true,
-        
+
             data: {
                 calendarId: query.calendarId,
                 bookingDate: selected_date.value,
@@ -2467,7 +2467,7 @@
                 intervale:query.intervale,
                 refresh_token:query.refresh_token
             },
-            dataType: "json",
+            dataType: "jsonp",
             success: function(n) {
                 return t(n), n
             }
