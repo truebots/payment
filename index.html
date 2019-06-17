@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    
+
         <title>Book It!</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
@@ -75,7 +75,23 @@
 
         </script>
         <script>
-            var query = {"userId":"userId","botId":"botId","timezone": "timezone","token":"token","place":"place","refresh_token":"refresh_token","email_user":"email_user","calendarId":"calendarId","fbPixelId":"fbPixelId","bookingStartTime":"bookingStartTime","bookingEndTime":"bookingEndTime","bufferTime":"bufferTime","enableDoubleBooking":"enableDoubleBooking","bookingType":"bookingType","bookingDays":"bookingDays","eventTitle":"eventTitle","eventDescription":"eventDescription","eventStatus":"eventStatus","eventDurationMin":"eventDurationMin","eventDurationMax":"eventDurationMax","enableAMPM":"enableAMPM","enableRealSlots":"enableRealSlots"};
+        function getPa(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+            var query = {"userId":getPa("userId"),"botId":getPa("botId"),"timezone": getPa("timezone"),
+            "place":getPa("place"),"refresh_token":getPa("refresh_token"),
+            "email_user":getPa("email_user"),"calendarId":getPa("calendarId"),"fbPixelId":getPa("fbPixelId"),
+            "bookingStartTime":getPa("bookingStartTime"),"bookingEndTime":getPa("bookingEndTime"),
+            "bufferTime":getPa("bufferTime"),"enableDoubleBooking":getPa("enableDoubleBooking"),
+            "bookingType":getPa("bookingType"),"bookingDays":getPa("bookingDays"),"eventTitle":getPa("eventTitle"),
+            "eventDescription":getPa("eventDescription"),"eventStatus":getPa("eventStatus"),
+            "eventDurationMin":getPa("eventDurationMin"),"eventDurationMax":getPa("eventDurationMax"),
+            "enableRealSlots":getPa("enableRealSlots")};
+
+
         </script>
         <div class="pre-con">
         </div>

@@ -2454,7 +2454,7 @@
             })
         };
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")), $.ajax({
-            type: "POST",
+            type: "GET",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
 
             data: {
@@ -2466,7 +2466,7 @@
                 intervale:query.intervale,
                 refresh_token:query.refresh_token
             },
-            dataType: "jsonp",
+            dataType: "json",
             success: function(n) {
                 return t(n), n
             }
