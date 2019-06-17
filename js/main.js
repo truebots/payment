@@ -2456,10 +2456,9 @@
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")), $.ajax({
             type: "POST",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
-            crossDomain: true,
             headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
+                                'Access-Control-Allow-Origin': '*'
+            },
             data: {
                 calendarId: query.calendarId,
                 bookingDate: selected_date.value,
@@ -2491,7 +2490,7 @@
                 url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-addEvent",
                 headers: {
                                     'Access-Control-Allow-Origin': '*'
-                                },
+                },
                 data: {
                     eventTitle: query.eventTitle,
                     eventDescription: query.eventDescription,
