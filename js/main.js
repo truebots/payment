@@ -2457,7 +2457,9 @@
             type: "POST",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
             crossDomain: true,
-
+            headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
             data: {
                 calendarId: query.calendarId,
                 bookingDate: selected_date.value,
