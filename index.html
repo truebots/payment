@@ -61,6 +61,7 @@
       function obtenerValorParametro(sParametroNombre) {
 var sPaginaURL = document.location.href;
  var sURLVariables = sPaginaURL.split('&');
+   console.log(sURLVariables);
   for (var i = 0; i < sURLVariables.length; i++) {
     var sParametro = sURLVariables[i].split('=');
     if (sParametro[0] == sParametroNombre) {
@@ -69,7 +70,7 @@ var sPaginaURL = document.location.href;
   }
  return null;
 }
-      console.log(document.location.href);
+
 			(function(d, s, id){
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) {return;}
