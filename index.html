@@ -59,8 +59,9 @@
         <script type="text/javascript">
 			// required - messenger javascript extensions
       function obtenerValorParametro(sParametroNombre) {
-var sPaginaURL = document.location.href;
- var sURLVariables = sPaginaURL.split('&');
+var sPaginaURL2 = document.location.href;
+var sPaginaURL= sPaginaURL.split("?");
+ var sURLVariables = sPaginaURL[1].split('&');
    console.log(sURLVariables);
   for (var i = 0; i < sURLVariables.length; i++) {
     var sParametro = sURLVariables[i].split('=');
