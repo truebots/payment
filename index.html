@@ -113,17 +113,20 @@ console.log(obtenerValorParametro('userId'));
         var veventDurationMin=obtenerValorParametro("eventDurationMin");
         var veventDurationMax=obtenerValorParametro("eventDurationMax");
         var venableRealSlots=obtenerValorParametro("enableRealSlots");
+
+
+        var query = {"userId":vuserId,"botId":vbotId,
+        "timezone": vtimezone,"place":vplace,"refresh_token":vrefresh_token,
+        "email_user":vemail_user,"calendarId":vcalendarId,"fbPixelId":vfbPixelId,
+        "bookingStartTime":vbookingStartTime,"bookingEndTime":vbookingEndTime,"bufferTime":vbufferTime,
+        "enableDoubleBooking":venableDoubleBooking,"bookingType":vbookingType,"bookingDays":vbookingDays,
+        "eventTitle":veventTitle,"eventDescription":veventDescription,"eventStatus":veventStatus,
+        "eventDurationMin":veventDurationMin,"eventDurationMax":veventDurationMax,
+        "enableRealSlots":venableRealSlots};
         </script>
         <script>
 
-              var query = {"userId":vuserId,"botId":vbotId,
-              "timezone": vtimezone,"place":vplace,"refresh_token":vrefresh_token,
-              "email_user":vemail_user,"calendarId":vcalendarId,"fbPixelId":vfbPixelId,
-              "bookingStartTime":vbookingStartTime,"bookingEndTime":vbookingEndTime,"bufferTime":vbufferTime,
-              "enableDoubleBooking":venableDoubleBooking,"bookingType":vbookingType,"bookingDays":vbookingDays,
-              "eventTitle":veventTitle,"eventDescription":veventDescription,"eventStatus":veventStatus,
-              "eventDurationMin":veventDurationMin,"eventDurationMax":veventDurationMax,
-              "enableRealSlots":venableRealSlots};
+
 
 
         </script>
