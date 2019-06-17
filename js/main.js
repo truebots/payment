@@ -2456,8 +2456,7 @@
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")), $.ajax({
             type: "POST",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
-            crossDomain: true,
-        
+            
             headers: {
                     'Access-Control-Allow-Origin': '*'
                 },
