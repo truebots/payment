@@ -60,7 +60,10 @@
 			// required - messenger javascript extensions
       function obtenerValorParametro(sParametroNombre) {
 var sPaginaURL2 = document.location.href;
+console.log(sPaginaURL2);
+
 var sPaginaURL= sPaginaURL2.split("?");
+
  var sURLVariables = sPaginaURL[1].split('&');
    console.log(sURLVariables);
   for (var i = 0; i < sURLVariables.length; i++) {
@@ -94,7 +97,14 @@ console.log(obtenerValorParametro('userId'));
         </script>
         <script>
 
-              var query = {"userId":"userId","botId":"botId","timezone": "timezone","token":"token","place":"place","refresh_token":"refresh_token","email_user":"email_user","calendarId":"calendarId","fbPixelId":"fbPixelId","bookingStartTime":"bookingStartTime","bookingEndTime":"bookingEndTime","bufferTime":"bufferTime","enableDoubleBooking":"enableDoubleBooking","bookingType":"bookingType","bookingDays":"bookingDays","eventTitle":"eventTitle","eventDescription":"eventDescription","eventStatus":"eventStatus","eventDurationMin":"eventDurationMin","eventDurationMax":"eventDurationMax","enableAMPM":"enableAMPM","enableRealSlots":"enableRealSlots"};
+              var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),
+              "timezone": obtenerValorParametro("timezone"),"place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
+              "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+              "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),"bufferTime":obtenerValorParametro("bufferTime"),
+              "enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),"bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),
+              "eventTitle":obtenerValorParametro("eventTitle"),"eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
+              "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
+              "enableRealSlots":obtenerValorParametro("enableRealSlots")};
 
 
         </script>
