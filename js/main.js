@@ -2465,7 +2465,7 @@
                 intervale:query.intervale,
                 refresh_token:query.refresh_token
             },
-            dataType: "json",
+            dataType: "jsonp",
             success: function(n) {
                 return t(n), n
             }
