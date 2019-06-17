@@ -93,18 +93,37 @@ console.log(obtenerValorParametro('userId'));
             status: 'completed'
             });
         });
-
+        var vuserId=obtenerValorParametro("userId");
+        var vbotId=obtenerValorParametro("botId");
+        var vtimezone: obtenerValorParametro("timezone");
+        var vplace=obtenerValorParametro("place");
+        var vrefresh_token:obtenerValorParametro("refresh_token");
+        var email_user=obtenerValorParametro("email_user");
+        var vcalendarId=obtenerValorParametro("calendarId");
+        var vfbPixelId=obtenerValorParametro("fbPixelId");
+        var vbookingStartTime=obtenerValorParametro("bookingStartTime");
+        var vbookingEndTime=obtenerValorParametro("bookingEndTime");
+        var vbufferTime=obtenerValorParametro("bufferTime");
+        var venableDoubleBooking=obtenerValorParametro("enableDoubleBooking");
+        var vbookingType=obtenerValorParametro("bookingType");
+        var vbookingDays=obtenerValorParametro("bookingDays");
+        var veventTitle=obtenerValorParametro("eventTitle");
+        var veventDescription=obtenerValorParametro("eventDescription");
+        var veventStatus=obtenerValorParametro("eventStatus");
+        var veventDurationMin=obtenerValorParametro("eventDurationMin");
+        var veventDurationMax=obtenerValorParametro("eventDurationMax");
+        var venableRealSlots=obtenerValorParametro("enableRealSlots");
         </script>
         <script>
 
-              var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),
-              "timezone": obtenerValorParametro("timezone"),"place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
-              "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
-              "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),"bufferTime":obtenerValorParametro("bufferTime"),
-              "enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),"bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),
-              "eventTitle":obtenerValorParametro("eventTitle"),"eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
-              "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
-              "enableRealSlots":obtenerValorParametro("enableRealSlots")};
+              var query = {"userId":vuserId,"botId":vbotId,
+              "timezone": vtimezone,"place":vplace,"refresh_token":vrefresh_token,
+              "email_user":vemail_user,"calendarId":vcalendarId,"fbPixelId":vfbPixelId,
+              "bookingStartTime":vbookingStartTime,"bookingEndTime":vbookingEndTime,"bufferTime":vbufferTime,
+              "enableDoubleBooking":venableDoubleBooking,"bookingType":vbookingType,"bookingDays":vbookingDays,
+              "eventTitle":veventTitle,"eventDescription":veventDescription,"eventStatus":veventStatus,
+              "eventDurationMin":veventDurationMin,"eventDurationMax":veventDurationMax,
+              "enableRealSlots":venableRealSlots};
 
 
         </script>
