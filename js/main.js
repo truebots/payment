@@ -2456,6 +2456,9 @@
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")), $.ajax({
             type: "POST",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
+            headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
             data: {
                 calendarId: query.calendarId,
                 bookingDate: selected_date.value,
@@ -2485,6 +2488,9 @@
             $.ajax({
                 type: "POST",
                 url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-addEvent",
+                headers: {
+                                    'Access-Control-Allow-Origin': '*'
+                                },
                 data: {
                     eventTitle: query.eventTitle,
                     eventDescription: query.eventDescription,
@@ -2503,6 +2509,9 @@
                     $.ajax({
                         type: "POST",
                         url: "https://api.chatfuel.com/bots/"+query.botId+"/users/"+query.userId+"/send?chatfuel_token="+query.token+"&chatfuel_block_name="+"Confirmation"+"&eventDateFormatted="+e+"&eventStartTime="+time_start.value+"&eventEndTime>="+time_end.value,
+                        headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
                         data: {
                             botId: query.botId,
                             userId: query.userId,
