@@ -58,18 +58,35 @@
     <body>
         <script type="text/javascript">
 			// required - messenger javascript extensions
-      function obtenerValorParametro(sParametroNombre) {
-      var sPaginaURL = window.location.search.substring(1);
-       var sURLVariables = sPaginaURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) {
-          var sParametro = sURLVariables[i].split('=');
-          if (sParametro[0] == sParametroNombre) {
-            return sParametro[1];
-          }
+      function ObtenerParametroURL(var_name) {
+    /* Obtener la url completa */
+    url = document.URL;
+    /* Buscar a partir del signo de interrogación ? */
+    url = String(url.match(/\?+.+/));
+    /* limpiar la cadena quitándole el signo ? */
+    url = url.replace("?", "");
+    /* Crear un array con parametro=valor */
+    url = url.split("&");
+
+    /*
+    Recorrer el array url
+    obtener el valor y dividirlo en dos partes a través del signo =
+    0 = parametro
+    1 = valor
+    Si el parámetro existe devolver su valor
+    */
+    x = 0;
+    while (x < url.length)
+    {
+        p = url[x].split("=");
+        if (p[0] == var_name)
+        {
+            return decodeURIComponent(p[1]);
         }
-       return null;
-      }
-      console.log((obtenerValorParametro('userId'));
+        x++;
+    }
+}
+      console.log((ObtenerParametroURL('userId'));
 			(function(d, s, id){
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) {return;}
