@@ -60,11 +60,12 @@
 			// required - messenger javascript extensions
       function obtenerValorParametro(sParametroNombre) {
 var sPaginaURL2 = document.location.href;
+sPaginaURL2= sPaginaURL.replace('%20', ' ');
+sPaginaURL2= sPaginaURL.replace('%A0', ' ');
+
 console.log(sPaginaURL2);
 
 var sPaginaURL= sPaginaURL2.split("?");
-sPaginaURL= sPaginaURL.replace('%20', ' ');
-sPaginaURL= sPaginaURL.replace('%A0', ' ');
 
  var sURLVariables = sPaginaURL[1].split('&');
    console.log(sURLVariables);
