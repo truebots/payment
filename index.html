@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Book It!</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>$(window).load(function(){$(".pre-con").fadeOut("fast");});</script>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css">
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        	<meta name="viewport" content="width=device-width, initial-scale=1">
+        	<title>jQuery UI Datepicker - Display inline</title>
+        	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        	<link rel="stylesheet" href="/resources/demos/style.css">
+        	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+                <!-- Facebook Pixel Code -->
+        <script>
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', fbPixelId);
+          fbq('track', 'PageView');
+          fbq('track', 'ViewContent', {
+            content_name: 'CalendarBird Booking Calendar',
+            value: 1.00,
+            currency: 'USD',
+            referrer: document.referrer,
+            userAgent: navigator.userAgent,
+            language: navigator.language
+          });
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+          src="https://www.facebook.com/tr?id=fbPixelId&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Facebook Pixel Code -->
+
+    </head>
+
+    <body>
+        <script type="text/javascript">
+			// required - messenger javascript extensions
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			  }(document, 'script', 'Messenger'));
+		</script>
+        <script type="text/javascript">
+        // Add Pixel Events to the booking completion
+        $('a.done').click(function() {
+            fbq('track', 'CompleteRegistration', {
+            content_name: 'Booking Registration',
+            value: 1.00,
+            currency: 'USD',
+            status: 'completed'
+            });
+        });
+
+        </script>
+        <script>
+            var query = {"userId":"userId","botId":"botId","timezone": "timezone","token":"token","place":"place","refresh_token":"refresh_token","email_user":"email_user","calendarId":"calendarId","fbPixelId":"fbPixelId","bookingStartTime":"bookingStartTime","bookingEndTime":"bookingEndTime","bufferTime":"bufferTime","enableDoubleBooking":"enableDoubleBooking","bookingType":"bookingType","bookingDays":"bookingDays","eventTitle":"eventTitle","eventDescription":"eventDescription","eventStatus":"eventStatus","eventDurationMin":"eventDurationMin","eventDurationMax":"eventDurationMax","enableAMPM":"enableAMPM","enableRealSlots":"enableRealSlots"};
+        </script>
+        <div class="pre-con">
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form id="datetime">
+                    <article id="page_1">
+                        <label>Select a date:</label>
+                        <div id="W1" class="warning">
+                            <p>A selection is required</p>
+                        </div>
+                        <input type="hidden" id="selected_date" required=true>
+                        <div id="datepicker">
+                          <a class="next" href="#">Next</a>
+
+                    </article>
+                    <article id ="page_2">
+                        <div class="timepicker">
+                            <div class="above_timepicker">
+                                <div class="back_to_datepicker"><p>Pick another Date</p></div>
+                                <div class="user_timezone"></div>
+                            </div>
+                            <div class="timestart">
+                                <label>What time will your event start:</label>
+                                <div id="W2" class="warning">
+                                    <p>A selection is required</p>
+                                </div>
+                                <input type="text" id="time_start">
+                            </div>
+                            <div class="timeend">
+                                <label>What time will your event end:</label>
+                                <div id="W3" class="warning">
+                                    <p>A selection is required</p>
+                                </div>
+                                <input type="text" id="time_end" disabled="true">
+                            </div>
+                        </div>
+                        <a class="done" href="#">Done</a>
+                    </article>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="footer">
+                    <p>Booking made simple. 🐦 <a href="https://calendarbird.com">CalendarBird</a></p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/de37a75510.js"></script>
+        <script src="js/vendor/moment.min.js"></script>
+        <script src="js/vendor/moment-timezone.min.js"></script>
+        <script src="js/vendor/moment-timezone-with-data.min.js"></script>
+        <script src="js/vendor/bootstrap-datepicker.min.js"></script>
+        <script src="js/vendor/jquery.timepicker.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
