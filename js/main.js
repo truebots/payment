@@ -2417,6 +2417,8 @@
                                     var u = moment(i.start);
                                     var a = moment(i.end);
                                     var c = [u, a];
+                                    console.log(r);
+                                    console.log(c);
                                     e.push(c)
 
                             }
