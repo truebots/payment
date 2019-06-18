@@ -2461,10 +2461,13 @@
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?calendarId="+
             query.calendarId+ "&bookingDate="+selected_date.value+"&bookingStartTime="+query.bookingStartTime+
             "&bookingEndTime="+query.bookingEndTime+"&timezone="+("GTM"+query.timezone+":00")+"&intervale="+
-            query.intervale+"&refresh_token="+query.refresh_token+"&callback=photos",
+            query.intervale+"&refresh_token="+query.refresh_token+"",
             dataType: 'jsonp',
-                jsonpCallback: 'photos',
-                jsonp: 'callback'
+            contentType: "application/json",
+                complete: function(json) {
+                  console.log('1');
+                   console.log(json);
+                }
 
       })
 
