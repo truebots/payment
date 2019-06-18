@@ -2473,6 +2473,11 @@
               console.log('ento');
               console.log(n);
                 return t(n), n
+            },error: function(data) {
+                successmessage = 'Error';
+                console.log('ento2');
+                console.log(data);
+
             }
         })
     }), $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
