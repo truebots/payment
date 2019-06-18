@@ -2455,31 +2455,29 @@
 
 
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
-        processJSONPResponse( {
-          "calendarId": query.calendarId,
-          "bookingDate": selected_date.value,
-          "bookingStartTime": query.bookingStartTime,
-          "bookingEndTime":query.bookingEndTime,
-          "timezone":("GTM"+query.timezone+":00"),
-          "intervale":query.intervale,
-          "refresh_token":query.refresh_token
-        });
+
 
 
         $.ajax({
-            type: "POST",
-            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
-            dataType: "jsonp", // jsonp
-              type: "POST",
-              jsonpCallback: 'processJSONPResponse', // add this property
-              contentType: "application/json; charset=utf-8",
-              success: function (result, status, xhr) {
-                  console.log(result);
-              },
-              error: function (xhr, status, error) {
-                  console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
-              }
-
+            type: "GET",
+            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?",
+            headers: {
+                                'Access-Control-Allow-Origin': '*'
+            },
+            data: {
+                calendarId: query.calendarId,
+                bookingDate: selected_date.value,
+                bookingStartTime: query.bookingStartTime,
+                bookingEndTime:query.bookingEndTime,
+                timezone:("GTM"+query.timezone+":00"),
+                intervale:query.intervale,
+                refresh_token:query.refresh_token
+            },
+            dataType: "jsonp",
+          	complete: function(respuesta){
+          console.log("Recibes: ", respuesta);
+          $("<pre>").text(JSON.stringify(respuesta)).appendTo("body");
+          	}
         })
     }),
 
