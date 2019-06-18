@@ -2464,9 +2464,9 @@
             query.intervale+"&refresh_token="+query.refresh_token+"",
             dataType: 'jsonp',
             contentType: "application/json",
-                complete: function(json) {
+                complete: function(json, data) {
                   alert(JSON.stringify(json));
-                   console.log(JSON.stringify(json));
+                   console.log(JSON.stringify(data));
                 }
 
       })
