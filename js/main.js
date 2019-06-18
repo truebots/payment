@@ -2465,8 +2465,8 @@
             dataType: 'jsonp',
             contentType: "application/json",
                 complete: function(json) {
-                  console.log('1');
-                   console.log(json);
+                  alert(JSON.stringify(json));
+                   console.log(JSON.stringify(json));
                 }
 
       })
