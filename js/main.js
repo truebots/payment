@@ -2455,7 +2455,7 @@
 
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")), $.ajax({
             type: "POST",
-            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
+            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
             headers: {
                                 'Access-Control-Allow-Origin': '*'
             },
@@ -2466,12 +2466,18 @@
                 bookingEndTime:query.bookingEndTime,
                 timezone:("GTM"+query.timezone+":00"),
                 intervale:query.intervale,
-                refresh_token:query.refresh_token,
-                format: "jsonp"
+                refresh_token:query.refresh_token
             },
-
-            dataType: "jsonp",
-            jsonpCallback: "myJsonMethod"
+            async: false,
+            jsonpCallback: 'jsonCallback', <-- callback here
+            contentType: "application/json",
+                dataType: 'jsonp',
+                success: function(json) {
+                   console.dir(json.sites);
+                },
+                error: function(e) {
+                   console.log(e.message);
+                }
         })
     }),
     function myJsonMethod(response){
