@@ -2468,15 +2468,14 @@
                 refresh_token:query.refresh_token
             },
 
-            dataType: "jsonp",
+            dataType: "json",
             success: function(n) {
               console.log('ento');
               console.log(n);
                 return t(n), n
             },error: function(data) {
-              var parsed_data = JSON.parse(data);
-                console.log('ento2');
-                console.log(parsed_data);
+              console.log('ento2');
+                console.log(data);
 
             }
         })
