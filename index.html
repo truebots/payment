@@ -77,37 +77,17 @@ var sPaginaURL= sPaginaURL2.split("?");
 console.log(obtenerValorParametro("bookingType"));
 console.log(obtenerValorParametro("bookingDays"));
 
-var query = {"userId":"userId","botId":"botId","timezone": "timezone",
-    "place":"place","refresh_token":"refresh_token",
-    "email_user":"email_user","calendarId":"calendarId","fbPixelId":"fbPixelId",
-    "bookingStartTime":"bookingStartTime","bookingEndTime":"bookingEndTime",
-    "bufferTime":"bufferTime","enableDoubleBooking":"enableDoubleBooking",
-    "bookingType":"bookingType","bookingDays":"bookingDays","eventTitle":"eventTitle",
-    "eventDescription":"eventDescription","eventStatus":"eventStatus",
-    "eventDurationMin":"eventDurationMin","eventDurationMax":"eventDurationMax",
-    "enableRealSlots":"enableRealSlots"};
+var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
+    "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
+    "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+    "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
+    "bufferTime":obtenerValorParametro("bufferTime"),"enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),
+    "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
+    "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
+    "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
+    "enableRealSlots":obtenerValorParametro("enableRealSlots")};
 
-    query.userId=obtenerValorParametro("userId");
-    query.botId=obtenerValorParametro("botId");
-    query.timezone= obtenerValorParametro("timezone");
-    query.place=obtenerValorParametro("place");
-    query.refresh_token:obtenerValorParametro("refresh_token");
-    query.email_user=obtenerValorParametro("email_user");
-    query.calendarId=obtenerValorParametro("calendarId");
-    query.fbPixelId=obtenerValorParametro("fbPixelId");
-    query.bookingStartTime=obtenerValorParametro("bookingStartTime");
-    query.bookingEndTime=obtenerValorParametro("bookingEndTime");
-    query.bufferTime=obtenerValorParametro("bufferTime");
-    query.enableDoubleBooking=obtenerValorParametro("enableDoubleBooking");
-    query.bookingType=obtenerValorParametro("bookingType");
-    query.bookingDays=obtenerValorParametro("bookingDays");
-    query.eventTitle=obtenerValorParametro("eventTitle");
-    query.eventDescription=obtenerValorParametro("eventDescription");
-    query.eventStatus=obtenerValorParametro("eventStatus");
-    query.eventDurationMin=obtenerValorParametro("eventDurationMin");
-    query.eventDurationMax=obtenerValorParametro("eventDurationMax");
-    query.enableRealSlots=obtenerValorParametro("enableRealSlots");
-
+    
 			(function(d, s, id){
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) {return;}
