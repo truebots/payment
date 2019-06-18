@@ -2478,7 +2478,7 @@
                 },
                 error: function(e) {
                   console.log('2');
-                   console.log(e.message);
+                   console.log(e);
                 }
         })
     }),
