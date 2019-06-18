@@ -79,36 +79,6 @@ var sPaginaURL= sPaginaURL2.split("?");
 }
 console.log(obtenerValorParametro('userId'));
 
-var vuserId=obtenerValorParametro("userId");
-var vbotId=obtenerValorParametro("botId");
-var vtimezone: obtenerValorParametro("timezone");
-var vplace=obtenerValorParametro("place");
-var vrefresh_token:obtenerValorParametro("refresh_token");
-var email_user=obtenerValorParametro("email_user");
-var vcalendarId=obtenerValorParametro("calendarId");
-var vfbPixelId=obtenerValorParametro("fbPixelId");
-var vbookingStartTime=obtenerValorParametro("bookingStartTime");
-var vbookingEndTime=obtenerValorParametro("bookingEndTime");
-var vbufferTime=obtenerValorParametro("bufferTime");
-var venableDoubleBooking=obtenerValorParametro("enableDoubleBooking");
-var vbookingType=obtenerValorParametro("bookingType");
-var vbookingDays=obtenerValorParametro("bookingDays");
-var veventTitle=obtenerValorParametro("eventTitle");
-var veventDescription=obtenerValorParametro("eventDescription");
-var veventStatus=obtenerValorParametro("eventStatus");
-var veventDurationMin=obtenerValorParametro("eventDurationMin");
-var veventDurationMax=obtenerValorParametro("eventDurationMax");
-var venableRealSlots=obtenerValorParametro("enableRealSlots");
-
-
-var query = {"userId":vuserId,"botId":vbotId,
-"timezone": vtimezone,"place":vplace,"refresh_token":vrefresh_token,
-"email_user":vemail_user,"calendarId":vcalendarId,"fbPixelId":vfbPixelId,
-"bookingStartTime":vbookingStartTime,"bookingEndTime":vbookingEndTime,"bufferTime":vbufferTime,
-"enableDoubleBooking":venableDoubleBooking,"bookingType":vbookingType,"bookingDays":vbookingDays,
-"eventTitle":veventTitle,"eventDescription":veventDescription,"eventStatus":veventStatus,
-"eventDurationMin":veventDurationMin,"eventDurationMax":veventDurationMax,
-"enableRealSlots":venableRealSlots};
 
 			(function(d, s, id){
 				var js, fjs = d.getElementsByTagName(s)[0];
@@ -132,7 +102,36 @@ var query = {"userId":vuserId,"botId":vbotId,
         <script>
 
 
+        var query = {"userId":"userId","botId":"botId","timezone": "timezone",
+            "place":"place","refresh_token":"refresh_token",
+            "email_user":"email_user","calendarId":"calendarId","fbPixelId":"fbPixelId",
+            "bookingStartTime":"bookingStartTime","bookingEndTime":"bookingEndTime",
+            "bufferTime":"bufferTime","enableDoubleBooking":"enableDoubleBooking",
+            "bookingType":"bookingType","bookingDays":"bookingDays","eventTitle":"eventTitle",
+            "eventDescription":"eventDescription","eventStatus":"eventStatus",
+            "eventDurationMin":"eventDurationMin","eventDurationMax":"eventDurationMax",
+            "enableRealSlots":"enableRealSlots"};
 
+            query.userId=obtenerValorParametro("userId");
+            query.botId=obtenerValorParametro("botId");
+            query.timezone: obtenerValorParametro("timezone");
+            query.place=obtenerValorParametro("place");
+            query.refresh_token:obtenerValorParametro("refresh_token");
+            query.email_user=obtenerValorParametro("email_user");
+            query.calendarId=obtenerValorParametro("calendarId");
+            query.fbPixelId=obtenerValorParametro("fbPixelId");
+            query.bookingStartTime=obtenerValorParametro("bookingStartTime");
+            query.bookingEndTime=obtenerValorParametro("bookingEndTime");
+            query.bufferTime=obtenerValorParametro("bufferTime");
+            query.enableDoubleBooking=obtenerValorParametro("enableDoubleBooking");
+            query.bookingType=obtenerValorParametro("bookingType");
+            query.bookingDays=obtenerValorParametro("bookingDays");
+            query.eventTitle=obtenerValorParametro("eventTitle");
+            query.eventDescription=obtenerValorParametro("eventDescription");
+            query.eventStatus=obtenerValorParametro("eventStatus");
+            query.eventDurationMin=obtenerValorParametro("eventDurationMin");
+            query.eventDurationMax=obtenerValorParametro("eventDurationMax");
+            query.enableRealSlots=obtenerValorParametro("enableRealSlots");
 
         </script>
         <div class="pre-con">
