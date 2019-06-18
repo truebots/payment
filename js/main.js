@@ -2453,24 +2453,34 @@
             })
         };
 
+
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
 
-
+        processJSONPResponse( {
+          "calendarId": query.calendarId,
+          "bookingDate": selected_date.value,
+          "bookingStartTime": query.bookingStartTime,
+          "bookingEndTime":query.bookingEndTime,
+          "timezone":("GTM"+query.timezone+":00"),
+          "intervale":query.intervale,
+          "refresh_token":query.refresh_token
+        });
 
         $.ajax({
-            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?calendarId="+
-            query.calendarId+ "&bookingDate="+selected_date.value+"&bookingStartTime="+query.bookingStartTime+
-            "&bookingEndTime="+query.bookingEndTime+"&timezone="+("GTM"+query.timezone+":00")+"&intervale="+
-            query.intervale+"&refresh_token="+query.refresh_token+"",
-            dataType: 'jsonp',
-            contentType: "application/json",
-                complete: function(json, data) {
-                  alert(JSON.stringify(json));
-                   console.log(data);
-                }
+            type: "POST",
+            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1",
+            dataType: "jsonp", // jsonp
+              type: "POST",
+              jsonpCallback: 'processJSONPResponse', // add this property
+              contentType: "application/json; charset=utf-8",
+              success: function (result, status, xhr) {
+                  console.log(result);
+              },
+              error: function (xhr, status, error) {
+                  console.log("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+              }
 
-      })
-
+        })
     }),
 
     $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
