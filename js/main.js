@@ -2467,10 +2467,7 @@
                 jsonp: 'callback'
 
       })
-      function photos (data) {
-    alert(JSON.stringify(data));
-    console.log(JSON.stringify(data));
-};
+
     }),
 
     $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
