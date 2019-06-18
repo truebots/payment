@@ -2453,23 +2453,19 @@
             })
         };
 
-        $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")), $.ajax({
-            type: "POST",
-            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
+        $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
+
+
+
+        $.ajax({
+            type: "GET",
+            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?calendarId="+
+            query.calendarId+ "&bookingDate="+selected_date.value+"&bookingStartTime="+query.bookingStartTime+
+            "&bookingEndTime="+query.bookingEndTime+"&timezone="+("GTM"+query.timezone+":00")+"&intervale="+
+            query.intervale+"&refresh_token="+query.refresh_token,
             headers: {
                                 'Access-Control-Allow-Origin': '*'
             },
-            data: {
-                calendarId: query.calendarId,
-                bookingDate: selected_date.value,
-                bookingStartTime: query.bookingStartTime,
-                bookingEndTime:query.bookingEndTime,
-                timezone:("GTM"+query.timezone+":00"),
-                intervale:query.intervale,
-                refresh_token:query.refresh_token
-            },
-            async: false,
-            jsonpCallback: 'jsonCallback',
             contentType: "application/json",
                 dataType: 'jsonp',
                 success: function(json) {
