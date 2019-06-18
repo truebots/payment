@@ -2468,8 +2468,8 @@
 
       })
       function photos (data) {
-    alert(data);
-    console.log(data);
+    alert(JSON.stringify(data));
+    console.log(JSON.stringify(data));
 };
     }),
 
