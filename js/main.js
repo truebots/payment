@@ -2458,25 +2458,19 @@
 
 
         $.ajax({
-            type: "GET",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?calendarId="+
             query.calendarId+ "&bookingDate="+selected_date.value+"&bookingStartTime="+query.bookingStartTime+
             "&bookingEndTime="+query.bookingEndTime+"&timezone="+("GTM"+query.timezone+":00")+"&intervale="+
-            query.intervale+"&refresh_token="+query.refresh_token,
-            headers: {
-                                'Access-Control-Allow-Origin': '*'
-            },
-            contentType: "application/json",
-                dataType: 'jsonp',
-                complete: function(json) {
-                  console.log('1');
-                   console.log(json);
-                },
-                error: function(e) {
-                  console.log('2');
-                   console.log(e);
-                }
-        })
+            query.intervale+"&refresh_token="+query.refresh_token+"&callback=photos",
+            dataType: 'jsonp',
+                jsonpCallback: 'photos',
+                jsonp: 'callback'
+
+      })
+      function photos (data) {
+    alert(data);
+    console.log(data);
+};
     }),
 
     $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
