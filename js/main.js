@@ -2453,7 +2453,15 @@
             })
         };
 
-
+        function processJSONPResponse( {
+          "calendarId": query.calendarId,
+          "bookingDate": selected_date.value,
+          "bookingStartTime": query.bookingStartTime,
+          "bookingEndTime":query.bookingEndTime,
+          "timezone":("GTM"+query.timezone+":00"),
+          "intervale":query.intervale,
+          "refresh_token":query.refresh_token
+        });
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
 
 
@@ -2474,15 +2482,7 @@
 
         })
     }),
-    function processJSONPResponse( {
-      "calendarId": query.calendarId,
-      "bookingDate": selected_date.value,
-      "bookingStartTime": query.bookingStartTime,
-      "bookingEndTime":query.bookingEndTime,
-      "timezone":("GTM"+query.timezone+":00"),
-      "intervale":query.intervale,
-      "refresh_token":query.refresh_token
-    });
+
     $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
         t.preventDefault(), "" !== selected_date.value ? ($(this).closest("article").removeClass("visible").hide().next().addClass("visible").fadeIn(), $(window).scrollTop(0)) : $("#W1")[0].style.display = "block"
     }), $(".back_to_datepicker p").on("click", function(t) {
