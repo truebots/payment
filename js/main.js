@@ -2466,7 +2466,7 @@
             contentType: "application/json",
                 complete: function(json, data) {
                   alert(JSON.stringify(json));
-                   console.log(JSON.stringify(data));
+                   console.log(data);
                 }
 
       })
