@@ -2469,7 +2469,7 @@
                 refresh_token:query.refresh_token
             },
             async: false,
-            jsonpCallback: 'jsonCallback', <-- callback here
+            jsonpCallback: 'jsonCallback', 
             contentType: "application/json",
                 dataType: 'jsonp',
                 success: function(json) {
