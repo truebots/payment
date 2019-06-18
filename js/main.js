@@ -2416,9 +2416,7 @@
                                     o = moment(selected_date.value);
                                 if (moment(i.start).isSame(o, "day")) {
                                     var u = moment(i.start);
-                                    u = moment(u).isBefore(moment(i.start).startOf("day")) ? "00:00" : u.format("HH:mm");
                                     var a = moment(i.end);
-                                    "00:00" === (a = moment(a).isAfter(moment(i.start).endOf("day")) ? "24:00" : moment(i.end).add(query.bufferTime, "minutes").format("HH:mm")) && (a = "24:00");
                                     var c = [u, a];
                                     e.push(c)
                                 }
