@@ -2471,16 +2471,7 @@
             },
 
             dataType: "jsonp",
-            jsonpCallback: "myJsonMethod",
-            success: function(n) {
-              console.log('ento');
-              console.log(n);
-                return t(n), n
-            },error: function(data) {
-              console.log('ento2');
-                console.log(data);
-
-            }
+            jsonpCallback: "myJsonMethod"
         })
     }),
     function myJsonMethod(response){
