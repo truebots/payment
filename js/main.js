@@ -2473,9 +2473,11 @@
             contentType: "application/json",
                 dataType: 'jsonp',
                 success: function(json) {
-                   console.dir(json);
+                  console.log('1');
+                   console.log(json);
                 },
                 error: function(e) {
+                  console.log('2');
                    console.log(e.message);
                 }
         })
