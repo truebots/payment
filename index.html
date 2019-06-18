@@ -63,13 +63,10 @@ var sPaginaURL2 = document.location.href;
 sPaginaURL2= sPaginaURL2.replace('%20', ' ');
 sPaginaURL2= sPaginaURL2.replace('%A0', ' ');
 
-console.log(sPaginaURL2);
-
 var sPaginaURL= sPaginaURL2.split("?");
 
  var sURLVariables = sPaginaURL[1].split('&');
-   console.log(sURLVariables);
-  for (var i = 0; i < sURLVariables.length; i++) {
+   for (var i = 0; i < sURLVariables.length; i++) {
     var sParametro = sURLVariables[i].split('=');
     if (sParametro[0] == sParametroNombre) {
       return sParametro[1];
