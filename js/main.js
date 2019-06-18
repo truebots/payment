@@ -2474,8 +2474,9 @@
               console.log(n);
                 return t(n), n
             },error: function(data) {
+              var parsed_data = JSON.parse(data);
                 console.log('ento2');
-                console.log(data);
+                console.log(parsed_data);
 
             }
         })
