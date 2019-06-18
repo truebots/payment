@@ -2453,7 +2453,9 @@
             })
         };
 
-        function processJSONPResponse( {
+
+        $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
+        processJSONPResponse( {
           "calendarId": query.calendarId,
           "bookingDate": selected_date.value,
           "bookingStartTime": query.bookingStartTime,
@@ -2462,8 +2464,6 @@
           "intervale":query.intervale,
           "refresh_token":query.refresh_token
         });
-        $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
-
 
 
         $.ajax({
