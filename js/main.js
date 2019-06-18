@@ -2469,7 +2469,7 @@
                 refresh_token:query.refresh_token
             },
             async: false,
-            jsonpCallback: 'jsonCallback', 
+            jsonpCallback: 'jsonCallback',
             contentType: "application/json",
                 dataType: 'jsonp',
                 success: function(json) {
@@ -2480,10 +2480,7 @@
                 }
         })
     }),
-    function myJsonMethod(response){
-      console.log ('response');
-    console.log (response);
-    }
+    
     $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
         t.preventDefault(), "" !== selected_date.value ? ($(this).closest("article").removeClass("visible").hide().next().addClass("visible").fadeIn(), $(window).scrollTop(0)) : $("#W1")[0].style.display = "block"
     }), $(".back_to_datepicker p").on("click", function(t) {
