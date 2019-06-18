@@ -2412,14 +2412,13 @@
                         var e = [];
                         if (0 !== n.length && e.push(n), "no" === query.enableDoubleBooking) {
                             for (var r = 0; r < t.length; r += 1) {
-                                var i = t[r],
-                                    o = moment(selected_date.value);
-                                if (moment(i.start).isSame(o, "day")) {
+                                var i = t[r];
+
                                     var u = moment(i.start);
                                     var a = moment(i.end);
                                     var c = [u, a];
                                     e.push(c)
-                                }
+
                             }
                             return e
                         }
