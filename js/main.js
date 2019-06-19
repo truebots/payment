@@ -2214,6 +2214,8 @@
             return e.startOf("hour").add(i, "m")
         },
         o = function(t) {
+            console.log('llega2');
+                            console.log(t);
             return t === moment(t, "h:mm a").format("h:mm a") ? moment(t, "h:mm a").format("HH:mm") : t
         },
         u = function(t) {
