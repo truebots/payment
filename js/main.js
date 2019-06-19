@@ -2215,7 +2215,7 @@
         },
         o = function(t) {
             console.log('llega2');
-                            console.log(t);
+            console.log(t);
             return t === moment(t, "h:mm a").format("h:mm a") ? moment(t, "h:mm a").format("HH:mm") : t
         },
         u = function(t) {
@@ -2241,6 +2241,8 @@
                             console.log('llega');
                             console.log(n);
                             console.log(i);
+                            console.log(t);
+                            
                             console.log(o);
                             try {
                                 var u = n[i](o),
