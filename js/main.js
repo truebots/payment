@@ -2476,9 +2476,10 @@
             dataType: "jsonp",
             crossDomain:true,
             complete: function(respuesta){
-          console.log("Recibes: ", respuesta);
-          $("<pre>").text(JSON.stringify(respuesta)).appendTo("body");
-          	}
+              var m=JSON.stringify(respuesta)
+              var n=m.['responseJSON']
+          return t(n),n
+
         })
     }),
 
