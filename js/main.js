@@ -2236,6 +2236,10 @@
                     var n = t.apply(this, arguments);
                     return new Promise(function(t, e) {
                         return function r(i, o) {
+                            console.log('llega');
+                            console.log(n);
+                            console.log(i);
+                            console.log(o);
                             try {
                                 var u = n[i](o),
                                     a = u.value
