@@ -2235,6 +2235,10 @@
         f = function() {
             var t = function(t) {
                 return function() {
+                    
+                    console.log('arguments');
+                    console.log(arguments);
+                          
                     var n = t.apply(this, arguments);
                     return new Promise(function(t, e) {
                         return function r (i, o ) {
