@@ -2474,11 +2474,8 @@
             crossDomain:true,
             success: function(respuesta){
               console.log(respuesta);
-              var m=JSON.stringify(respuesta)
-              console.log(m);
-
-              var n=m.responseJSON
-              console.log(n);
+              var n=JSON.stringify(respuesta)
+              
 
           return t(n),n
         }
