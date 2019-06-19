@@ -2477,7 +2477,7 @@
             crossDomain:true,
             complete: function(respuesta){
               var m=JSON.stringify(respuesta)
-              var n=m.['responseJSON']
+              var n=m.responseJSON
           return t(n),n
 
         })
