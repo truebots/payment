@@ -2836,6 +2836,10 @@
             }
 
             function T(t) {
+              console.log('t');
+
+              console.log(t);
+
                 this.tryEntries = [{
                     tryLoc: "root"
                 }], t.forEach(F, this), this.reset(!0)
