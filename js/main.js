@@ -2420,6 +2420,7 @@
                                   var a = moment(i.end).add(query.bufferTime, "minutes");
                                   "00:00" === (a = moment(a).isAfter(moment(i.start).endOf("day")) ? "24:00" : moment(i.end).add(query.bufferTime, "minutes").format("HH:mm")) && (a = "24:00");
                                   var c = [u, a];
+                                    console.log(c);
                                   e.push(c)
                               }
                           }
