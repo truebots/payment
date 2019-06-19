@@ -2217,7 +2217,7 @@
             return t === moment(t, "h:mm a").format("h:mm a") ? moment(t, "h:mm a").format("HH:mm") : t
         },
         u = function(t) {
-          var e = ("GTM"+query.timezone+":00");
+          var e = "America/Toronto";
           return moment.tz(selected_date.value + " " + t, e).tz(moment.tz.guess())
         },
         a = function(t) {
