@@ -2474,6 +2474,8 @@
                 refresh_token:query.refresh_token
             },
             dataType: "jsonp",
+            crossDomain:true,
+    jsonp: false,
           	complete: function(respuesta){
           console.log("Recibes: ", respuesta);
           $("<pre>").text(JSON.stringify(respuesta)).appendTo("body");
