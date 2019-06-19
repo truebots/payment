@@ -2423,9 +2423,7 @@
                   disableTimeRanges: function(t) {
                     console.log('p');
 
-                    console.log(t,n);
-
-                      var e = [];
+                     var e = [];
                       for (var r = 0; r < t.length; r += 1) {
                               var i = t[r],
                                   o = moment(selected_date.value);
@@ -2452,7 +2450,7 @@
                     $("#W2")[0].style.display = "none", $("#time_start").val(), $("#time_end").prop("disabled", !1), $("#time_end").timepicker({
                         timeFormat: p("yes"),
                         minTime: query.eventDurationMin && query.eventDurationMax ? l(selected_date.value, o(time_start.value), query.eventDurationMin) : l(selected_date.value, time_start.value, 30),
-                        maxTime: v(t, f, u),
+                        maxTime: query.eventDurationMax,
                         durationTime: time_start.value,
                         disableTextInput: !0,
                         disableTouchKeyboard: !0,
