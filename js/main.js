@@ -2455,9 +2455,6 @@
 
 
         $("#W1")[0].style.display = "none", $("#selected_date").val($("#datepicker").datepicker("getFormattedDate")),
-
-
-
         $.ajax({
             type: "GET",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
@@ -2479,8 +2476,9 @@
               var m=JSON.stringify(respuesta)
               var n=m.responseJSON
           return t(n),n
-
         }
+
+        })
     }),
 
     $("article:not(:last)").append('<a class="next" href="#">Next</a>'), $("article:nth-child(1n+2)").hide(), $("article:first").addClass("visible"), $("a.next").on("click", function(t) {
