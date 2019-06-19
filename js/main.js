@@ -2391,6 +2391,10 @@
         var t = function(t) {
           console.log(t);
             f(query.bookingStartTime, query.bookingEndTime).then(function(n) {
+              console.log('n');
+              console.log(n);
+
+
                 var e = n.a,
                     r = n.b,
                     u = n.b,
@@ -2407,10 +2411,15 @@
 
                 ($(".user_timezone").html("Times shown are in: " + h), selected_date.value === moment().format("YYYY-MM-DD")) ? moment().tz(h) > r && ($("#time_start").prop("disabled", !0), $("#time_start").attr("placeholder", "No more available slots for today")): ($("#time_start").prop("disabled", !1), $("#time_start").attr("placeholder", ""));
                 $("#time_start").timepicker({
+
                   timeFormat: p("yes"),
                   minTime: e.format("HH:mm"),
                   maxTime: r.format("HH:mm"),
                   disableTimeRanges: function(t, n) {
+                    console.log('p');
+
+                    console.log(t,n);
+
                       var e = [];
                       if (0 !== n.length && e.push(n), "no" === query.enableDoubleBooking) {
                           for (var r = 0; r < t.length; r += 1) {
@@ -2453,7 +2462,7 @@
                 })
             }).catch(function(t) {
               console.log(t);
-              
+
                 MessengerExtensions.requestCloseBrowser(function() {})
 
             })
