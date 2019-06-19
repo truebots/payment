@@ -2390,6 +2390,10 @@
     }), $("#datepicker").on("changeDate", function() {
         var t = function(t) {
           console.log(t);
+          console.log(query.bookingStartTime);
+          console.log(query.bookingEndTime);
+          console.log(f);
+
             f(query.bookingStartTime, query.bookingEndTime).then(function(n) {
               console.log('n');
               console.log(n);
@@ -2473,9 +2477,7 @@
         $.ajax({
             type: "GET",
             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
-            headers: {
-                                'Access-Control-Allow-Origin': '*'
-            },
+
             data: {
                 calendarId: query.calendarId,
                 bookingDate: selected_date.value,
