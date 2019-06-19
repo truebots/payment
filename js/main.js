@@ -2511,7 +2511,7 @@
               var n=JSON.stringify(respuesta)
               console.log(n);
 
-          return t((respuesta)),(respuesta)
+          return t((JSON.stringify(respuesta))),(JSON.stringify(respuesta))
         }
 
         })
