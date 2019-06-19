@@ -2404,8 +2404,7 @@
                     e = s.isSameOrAfter(n.a) ? i(s) : n.a
                 }
                 var h = moment.tz.guess();
-                console.log(t);
-                
+
                 ($(".user_timezone").html("Times shown are in: " + h), selected_date.value === moment().format("YYYY-MM-DD")) ? moment().tz(h) > r && ($("#time_start").prop("disabled", !0), $("#time_start").attr("placeholder", "No more available slots for today")): ($("#time_start").prop("disabled", !1), $("#time_start").attr("placeholder", ""));
                 $("#time_start").timepicker({
                   timeFormat: p("yes"),
@@ -2453,6 +2452,8 @@
                     $("#W3")[0].style.display = "none", $("#time_end").val()
                 })
             }).catch(function(t) {
+              console.log(t);
+              
                 MessengerExtensions.requestCloseBrowser(function() {})
 
             })
