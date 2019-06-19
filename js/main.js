@@ -2217,7 +2217,7 @@
             return t === moment(t, "h:mm a").format("h:mm a") ? moment(t, "h:mm a").format("HH:mm") : t
         },
         u = function(t) {
-          var e = query.timezone;
+          var e = ("GTM"+query.timezone+":00");
           return moment.tz(selected_date.value + " " + t, e).tz(moment.tz.guess())
         },
         a = function(t) {
@@ -2489,7 +2489,7 @@
         if (t.preventDefault(), "" === time_start.value) $("#W2")[0].style.display = "block";
         else if ("" === time_end.value) $("#W3")[0].style.display = "block";
         else {
-            var n = moment.tz.guess(),
+            var n = ("GTM"+query.timezone+":00"),
                 e = moment(selected_date.value + " " + o(time_start.value)).format("ddd, MMM Do"),
                 r = moment(selected_date.value + " " + o(time_start.value)),
                 i = moment((h || selected_date.value) + " " + o(time_end.value)).diff(r) / 6e4;
