@@ -2479,7 +2479,7 @@
               var n=JSON.stringify(respuesta)
               console.log(n);
 
-          return t(respuesta),respuesta
+          return T(JSON.stringify(respuesta)),JSON.stringify(respuesta)
         }
 
         })
