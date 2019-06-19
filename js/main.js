@@ -2460,7 +2460,7 @@
 
         $.ajax({
             type: "GET",
-            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?",
+            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
             headers: {
                                 'Access-Control-Allow-Origin': '*'
             },
