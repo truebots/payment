@@ -2389,6 +2389,7 @@
         disableTouchKeyboard: !0
     }), $("#datepicker").on("changeDate", function() {
         var t = function(t) {
+          console.log(t);
             f(query.bookingStartTime, query.bookingEndTime).then(function(n) {
                 var e = n.a,
                     r = n.b,
@@ -2479,7 +2480,7 @@
               var n=JSON.stringify(respuesta)
               console.log(n);
 
-          return T(JSON.stringify(respuesta)),JSON.stringify(respuesta)
+          return t(JSON.stringify(respuesta)),JSON.stringify(respuesta)
         }
 
         })
