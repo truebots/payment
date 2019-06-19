@@ -2487,13 +2487,12 @@
             },
             dataType: "jsonp",
             crossDomain:true,
-            async:true,
             success: function(respuesta){
               console.log(respuesta);
               var n=JSON.stringify(respuesta)
               console.log(n);
 
-          return t(JSON.stringify(respuesta)),JSON.stringify(respuesta)
+          return t((respuesta)),(respuesta)
         }
 
         })
@@ -2838,6 +2837,7 @@
             }
 
             function F(t) {
+
                 var n = {
                     tryLoc: t[0]
                 };
