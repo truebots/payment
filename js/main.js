@@ -2405,27 +2405,28 @@
                 var h = moment.tz.guess();
                 ($(".user_timezone").html("Times shown are in: " + h), selected_date.value === moment().format("YYYY-MM-DD")) ? moment().tz(h) > r && ($("#time_start").prop("disabled", !0), $("#time_start").attr("placeholder", "No more available slots for today")): ($("#time_start").prop("disabled", !1), $("#time_start").attr("placeholder", ""));
                 $("#time_start").timepicker({
-                    timeFormat: p("yes"),
-                    minTime: e.format("HH:mm"),
-                    maxTime: r.format("HH:mm"),
-                    disableTimeRanges: function(t, n) {
-                        var e = [];
-                        if (0 !== n.length && e.push(n), "no" === query.enableDoubleBooking) {
-                            for (var r = 0; r < t.length; r += 1) {
-                                var i = t[r];
-
-                                    var u = moment(i.start);
-                                    var a = moment(i.end);
-                                    var c = [u, a];
-                                    console.log(r);
-                                    console.log(c);
-                                    e.push(c)
-
-                            }
-                            return e
-                        }
-                        return e
-                    }(t, f),
+                  timeFormat: p("yes"),
+                  minTime: e.format("HH:mm"),
+                  maxTime: r.format("HH:mm"),
+                  disableTimeRanges: function(t, n) {
+                      var e = [];
+                      if (0 !== n.length && e.push(n), "no" === query.enableDoubleBooking) {
+                          for (var r = 0; r < t.length; r += 1) {
+                              var i = t[r],
+                                  o = moment(selected_date.value);
+                              if (moment(i.start).isSame(o, "day")) {
+                                  var u = moment(i.start).subtract(parseInt(query.bufferTime, 10) + (parseInt(query.eventDurationMin, 10) - 1), "m");
+                                  u = moment(u).isBefore(moment(i.start).startOf("day")) ? "00:00" : u.format("HH:mm");
+                                  var a = moment(i.end).add(query.bufferTime, "minutes");
+                                  "00:00" === (a = moment(a).isAfter(moment(i.start).endOf("day")) ? "24:00" : moment(i.end).add(query.bufferTime, "minutes").format("HH:mm")) && (a = "24:00");
+                                  var c = [u, a];
+                                  e.push(c)
+                              }
+                          }
+                          return e
+                      }
+                      return e
+                  }(t, f),
                     disableTextInput: !0,
                     disableTouchKeyboard: !0,
                     step: "yes" === query.enableRealSlots ? parseInt(query.bufferTime, 10) + parseInt(query.eventDurationMax, 10) : Math.min(query.eventDurationMin, 30)
