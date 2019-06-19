@@ -2415,16 +2415,40 @@
           console.log(query.bookingStartTime);
           console.log(query.bookingEndTime);
           console.log(f);
-             ($("#time_start").timepicker({
+
+            f(query.bookingStartTime, query.bookingEndTime).then(function(n) {
+              console.log('n');
+              console.log(n);
+
+
+                var e = n.a,
+                    r = n.b,
+                    u = n.b,
+                    a = moment(e).format("YYYY-MM-DD"),
+                    c = moment(r).format("YYYY-MM-DD");
+                r = moment(r).subtract(query.eventDurationMin, "minutes");
+                var f = [];
+                if (moment(a).isBefore(moment(selected_date.value)) || moment(c).isAfter(moment(selected_date.value))) selected_date.value === moment().format("YYYY-MM-DD") && moment() > moment(e).startOf("day") ? e = i(moment()) : (moment(a).isBefore(moment(selected_date.value)) && (e = moment(e).startOf("day").add(1, "d")), e = moment(e).startOf("day")), u = moment(u).endOf("day"), r = moment(r).endOf("day").subtract(query.eventDurationMin, "minutes"), f = [moment(n.b).subtract(parseInt(query.eventDurationMin, 10) - 1, "m").format("HH:mm"), n.a.format("HH:mm")];
+                else if (selected_date.value === moment().format("YYYY-MM-DD")) {
+                    var s = moment();
+                    e = s.isSameOrAfter(n.a) ? i(s) : n.a
+                }
+                var h = moment.tz.guess();
+
+                ($(".user_timezone").html("Times shown are in: " + h), selected_date.value === moment().format("YYYY-MM-DD")) ? moment().tz(h) > r && ($("#time_start").prop("disabled", !0), $("#time_start").attr("placeholder", "No more available slots for today")): ($("#time_start").prop("disabled", !1), $("#time_start").attr("placeholder", ""));
+                $("#time_start").timepicker({
 
                   timeFormat: p("yes"),
-                  minTime: query.bookingStartTime,
-                  maxTime: query.bookingEndTime,
-                  disableTimeRanges: function(t) {
+                  minTime: e.format("HH:mm"),
+                  maxTime: r.format("HH:mm"),
+                  disableTimeRanges: function(t, n) {
                     console.log('p');
 
-                     var e = [];
-                      for (var r = 0; r < t.length; r += 1) {
+                    console.log(t,n);
+
+                      var e = [];
+                      if (0 !== n.length && e.push(n), "no" === query.enableDoubleBooking) {
+                          for (var r = 0; r < t.length; r += 1) {
                               var i = t[r],
                                   o = moment(selected_date.value);
                               if (moment(i.start).isSame(o, "day")) {
@@ -2438,8 +2462,8 @@
                               }
                           }
                           return e
-                      
-            
+                      }
+                      return e
                   }(t, f),
                     disableTextInput: !0,
                     disableTouchKeyboard: !0,
@@ -2450,7 +2474,7 @@
                     $("#W2")[0].style.display = "none", $("#time_start").val(), $("#time_end").prop("disabled", !1), $("#time_end").timepicker({
                         timeFormat: p("yes"),
                         minTime: query.eventDurationMin && query.eventDurationMax ? l(selected_date.value, o(time_start.value), query.eventDurationMin) : l(selected_date.value, time_start.value, 30),
-                        maxTime: query.eventDurationMax,
+                        maxTime: v(t, f, u),
                         durationTime: time_start.value,
                         disableTextInput: !0,
                         disableTouchKeyboard: !0,
@@ -2462,7 +2486,12 @@
                 }), $("#time_end").on("changeTime", function() {
                     $("#W3")[0].style.display = "none", $("#time_end").val()
                 })
-            
+            }).catch(function(t) {
+              console.log(t);
+
+                MessengerExtensions.requestCloseBrowser(function() {})
+
+            })
         };
 
 
