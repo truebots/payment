@@ -2487,6 +2487,7 @@
             },
             dataType: "jsonp",
             crossDomain:true,
+            async:true,
             success: function(respuesta){
               console.log(respuesta);
               var n=JSON.stringify(respuesta)
