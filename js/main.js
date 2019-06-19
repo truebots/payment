@@ -2475,7 +2475,7 @@
             success: function(respuesta){
               console.log(respuesta);
               var n=JSON.stringify(respuesta)
-              
+              console.log(n);
 
           return t(n),n
         }
