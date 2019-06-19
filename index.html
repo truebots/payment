@@ -1,76 +1,255 @@
 
-        <title>Book It!</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-
-        <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script>$(window).load(function(){$(".pre-con").fadeOut("fast");});</script>
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700">
-        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css">
-        <link rel="stylesheet" href="style.css">
-        <meta charset="utf-8">
-        	<meta name="viewport" content="width=device-width, initial-scale=1">
-        	<title>jQuery UI Datepicker - Display inline</title>
-        	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        	<link rel="stylesheet" href="/resources/demos/style.css">
-        	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-                <!-- Facebook Pixel Code -->
-        <script>
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', fbPixelId);
-          fbq('track', 'PageView');
-          fbq('track', 'ViewContent', {
-            content_name: 'CalendarBird Booking Calendar',
-            value: 1.00,
-            currency: 'USD',
-            referrer: document.referrer,
-            userAgent: navigator.userAgent,
-            language: navigator.language
-          });
-        </script>
-        <noscript><img height="1" width="1" style="display:none"
-          src="https://www.facebook.com/tr?id=fbPixelId&ev=PageView&noscript=1"
-        /></noscript>
-        <!-- End Facebook Pixel Code -->
-
-    </head>
-
-    <body>
-        <script type="text/javascript">
-			// required - messenger javascript extensions
-      function obtenerValorParametro(sParametroNombre) {
-var sPaginaURL2 = document.location.href;
-sPaginaURL2= sPaginaURL2.replace(/%20/g, ' ');
-sPaginaURL2= sPaginaURL2.replace(/%A0/g, ' ');
-
-var sPaginaURL= sPaginaURL2.split("?");
-
- var sURLVariables = sPaginaURL[1].split('&');
-   for (var i = 0; i < sURLVariables.length; i++) {
-    var sParametro = sURLVariables[i].split('=');
-    if (sParametro[0] == sParametroNombre) {
-      return sParametro[1];
+    
+<html>
+        <head>
+        
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Bootstrap DatePicker</title>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+            <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+           
+            <script>
+                function obtenerValorParametro(sParametroNombre) {
+    var sPaginaURL2 = document.location.href;
+    sPaginaURL2= sPaginaURL2.replace(/%20/g, ' ');
+    sPaginaURL2= sPaginaURL2.replace(/%A0/g, ' ');
+    
+    var sPaginaURL= sPaginaURL2.split("?");
+    
+     var sURLVariables = sPaginaURL[1].split('&');
+       for (var i = 0; i < sURLVariables.length; i++) {
+        var sParametro = sURLVariables[i].split('=');
+        if (sParametro[0] == sParametroNombre) {
+          return sParametro[1];
+        }
+      }
+     return null;
     }
-  }
- return null;
-}
-console.log(obtenerValorParametro("bookingType"));
-console.log(obtenerValorParametro("bookingDays"));
-
-var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
+    
+    
+    
+            </script>
+        
+        
+        </head>
+        <body>
+                <div class="pre-con">
+                    </div>
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="datetime">
+                                <article id="page_1">
+                                    <label>Select a date:</label>
+                                    <div id="W1" class="warning">
+                                        <p>A selection is required</p>
+                                    </div>
+                                    <input  id="datepicker" required=true>
+                                    
+                                    <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val())">Next</button>
+                                    
+    
+                                </article>
+                                <article id ="page_2">
+                                    <div class="timepicker">
+                                        <div class="above_timepicker">
+                                            <div class="back_to_datepicker"><p>Pick another Date</p></div>
+                                            <div class="user_timezone"></div>
+                                        </div>
+                                        <div class="timestart">
+                                            <label>What time will your event start:</label>
+                                            <div id="W2" class="warning">
+                                                <p>A selection is required</p>
+                                            </div>
+                                            <input type="text" id="time_start">
+                                            <select name="OS" id="timestartpi" onchange="admSelectCheck(this);">
+                                            </select>
+                                        </div>
+                                        <div class="timeend">
+                                            <label>What time will your event end:</label>
+                                            <div id="W3" class="warning">
+                                                <p>A selection is required</p>
+                                            </div>
+                                            <button type="button" class="btn btn-default" onClick="agendar($('#datepicker').val(),$('#timestartpi').val(),$('#timestartpi2').val())">Done</button>
+        
+                                            <input type="text" id="time_end" disabled="true">
+                                            <select name="OS" id="timestartpi2">
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </article>
+                                
+                            </form>
+                        </div>
+                    </div>
+    
+    
+    
+       
+            
+        
+            <script>
+    
+    
+                $('#datepicker').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+                $('#timepicker').timepicker({
+                    uiLibrary: 'bootstrap'
+                });
+                $('#timepicker2').timepicker({
+                    uiLibrary: 'bootstrap'
+                });
+                
+                function direccion(fecha1){
+    
+                    var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
+        "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
+        "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+        "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
+        "bufferTime":obtenerValorParametro("bufferTime"),"enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),
+        "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
+        "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
+        "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
+        "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
+    
+                    document.getElementById('page_1').style.display = 'none';
+                    var f= fecha1.split("/");
+                    var fechaform= f[2]+"-"+f[0]+"-"+f[1];
+    
+                    $.ajax({
+                            type: "GET",
+                            url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
+    
+                            data: {
+                                calendarId: query.calendarId,
+                                bookingDate: fechaform,
+                                bookingStartTime: query.bookingStartTime,
+                                bookingEndTime:query.bookingEndTime,
+                                timezone:("GTM"+query.timezone+":00"),
+                                intervale:query.intervale,
+                                refresh_token:query.refresh_token
+                            },
+                            dataType: "jsonp",
+                            crossDomain:true,
+                            success: function(respuesta){
+                            console.log(respuesta);
+                            var n=JSON.stringify(respuesta)
+                            console.log(n);
+                            var lista = document.getElementById("timestartpi");
+                            lista.innerHTML="";
+                            for (var i = 0; i <respuesta.length; i++) {
+                                console.log(respuesta);
+                                console.log(respuesta[i]);
+                                console.log(respuesta[i].start);
+    
+                                var m= respuesta[i].start;
+                                var temp= m.split("T");
+                                var horat= temp[1];
+                                horat=horat.replace(":00Z","");
+                                lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
+                            }
+    
+                        }
+    
+                        });
+                    
+    
+    
+    
+                  m="https://us-central1-secure-potion-243418.cloudfunctions.net/function-1?fecha="+ fecha1;
+                  
+                }
+    
+                function admSelectCheck(nameSelect)
+                    {
+                        var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
+        "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
+        "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+        "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
+        "bufferTime":obtenerValorParametro("bufferTime"),"enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),
+        "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
+        "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
+        "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
+        "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
+    
+                    
+                        console.log(nameSelect);
+    
+                        var m=document.getElementById("timestartpi").value;
+    
+                        var temp= m.split(":");
+    
+                        var horas=temp[0];
+                        var minutos=temp[1]
+    
+                        if(horas.startsWith("0")){
+                            horas= horas.replace("0","");
+                        }
+                        if(minutos.startsWith("0")){
+                            minutos= minutos.replace("0","");
+                        }
+                        var min= query.eventDurationMin;
+                        var max=query.eventDurationMax;
+    
+                        var op= min%60;
+                        var op2= max%60;
+                        
+    
+                        var horasmi=parseInt(horas)+(Math.trunc(min/60));
+                        var horasma=parseInt(horas)+(Math.trunc(max/60));
+    
+                        var minmi=minutos;
+                        var minma=minutos;
+    
+                        if(op!=0){
+                            var t=minmi+min;
+                            if(t>=60){
+                                var m= t-60;
+                                var u=Math.trunc(m/60);
+                                for (var i = 0; i <u; i++) {
+                                    m=m-60;
+                                    horasmi=horasmi+1;
+                                }
+                                minmi=m;
+                            }
+                        }
+                        if(op2!=0){
+                            var t=minma+min;
+                            if(t>=60){
+                                var m= t-60;
+                                var u=Math.trunc(m/60);
+                                for (var i = 0; i <u; i++) {
+                                    m=m-60;
+                                    horasma=horasma+1;
+                                }
+                                minma=m;
+                            }
+                        }
+                        if(minma==0){
+                            minma='00';
+                        }
+                        if(minmi==0){
+                            minmi='00';
+                        }
+                        var horat=horasmi+":"+minmi;
+                        var horat2=horasma+":"+minma;
+                        var lista = document.getElementById("timestartpi2");
+                        lista.innerHTML="";
+                        lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
+                        lista.innerHTML +="<option value="+horat2+">"+horat2+"</option> ";
+                        
+                        
+                    }
+    
+                    function agendar(fecha1,start,end){
+    
+    var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
     "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
     "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
     "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
@@ -78,91 +257,53 @@ var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParame
     "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
     "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
     "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
-    "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
-
-
-			(function(d, s, id){
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {return;}
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.com/en_US/messenger.Extensions.js";
-				fjs.parentNode.insertBefore(js, fjs);
-			  }(document, 'script', 'Messenger'));
-		</script>
-        <script type="text/javascript">
-        // Add Pixel Events to the booking completion
-        $('a.done').click(function() {
-            fbq('track', 'CompleteRegistration', {
-            content_name: 'Booking Registration',
-            value: 1.00,
-            currency: 'USD',
-            status: 'completed'
-            });
-        });
-
-        </script>
-        <script>
-
-
-
-        </script>
-        <div class="pre-con">
-        </div>
-        <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <form id="datetime">
-                    <article id="page_1">
-                        <label>Select a date:</label>
-                        <div id="W1" class="warning">
-                            <p>A selection is required</p>
-                        </div>
-                        <input type="hidden" id="selected_date" required=true>
-                        <div id="datepicker">
-
-                    </article>
-                    <article id ="page_2">
-                        <div class="timepicker">
-                            <div class="above_timepicker">
-                                <div class="back_to_datepicker"><p>Pick another Date</p></div>
-                                <div class="user_timezone"></div>
-                            </div>
-                            <div class="timestart">
-                                <label>What time will your event start:</label>
-                                <div id="W2" class="warning">
-                                    <p>A selection is required</p>
-                                </div>
-                                <input type="text" id="time_start">
-                            </div>
-                            <div class="timeend">
-                                <label>What time will your event end:</label>
-                                <div id="W3" class="warning">
-                                    <p>A selection is required</p>
-                                </div>
-                                <input type="text" id="time_end" disabled="true">
-                            </div>
-                        </div>
-                        <a class="done" href="#">Done</a>
-                    </article>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="footer">
-                    <p></a></p>
-                </div>
-            </div>
-        </div>
-        </div>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="https://use.fontawesome.com/de37a75510.js"></script>
-        <script src="js/vendor/moment.min.js"></script>
-        <script src="js/vendor/moment-timezone.min.js"></script>
-        <script src="js/vendor/moment-timezone-with-data.min.js"></script>
-        <script src="js/vendor/bootstrap-datepicker.min.js"></script>
-        <script src="js/vendor/jquery.timepicker.js"></script>
-        <script src="js/main.js"></script>
-    </body>
-</html>
+    "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes", "token":obtenerValorParametro("token")};
+    
+    document.getElementById('page_1').style.display = 'none';
+    var f= fecha1.split("/");
+    var fechaform= f[2]+"-"+f[0]+"-"+f[1];
+    var m=document.getElementById("timestartpi").value;
+    var m2=document.getElementById("timestartpi2").value;
+    
+    ($.ajax({
+                    type: "GET",
+                    url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-addEvent?callback=?",
+                    data: {
+                        eventTitle: query.eventTitle,
+                        eventDescription: query.eventDescription,
+                        eventStatus: query.eventStatus,
+                        eventFromDate: fechaform,
+                        eventToDate: fechaform,
+                        eventStartTime: m,
+                        eventEndTime: m2,
+                        calendarId: query.calendarId,
+                        timezone: ("GTM"+query.timezone+":00"),
+                        email_user: "li.forero@uniandes.edu.co",
+                        place: query.place,
+                        intervale: 60,
+                        refresh_token: query.refresh_token,
+                        botId: query.botId,
+                        userId: query.userId,
+                        eventDateFormatted: fechaform,
+                        chatfuel_block_name:"Confirmation",
+                        eventStartTime: start,
+                        eventDuration: 60,
+                        userTimezone: ("GTM"+query.timezone+":00"),
+                        token: query.token
+                                
+                    },
+                    dataType: "jsonp",
+                    crossDomain:true,
+                            
+                    success: function(t) {
+                        console.log(t);
+                    },
+                    error: function(t) {
+                        console.log(t);
+    
+                    }
+                }));
+    }
+            </script>
+        </body>
+        </html>
