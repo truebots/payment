@@ -2472,9 +2472,14 @@
             },
             dataType: "jsonp",
             crossDomain:true,
-            complete: function(respuesta){
+            success: function(respuesta){
+              console.log(respuesta);
               var m=JSON.stringify(respuesta)
+              console.log(m);
+
               var n=m.responseJSON
+              console.log(n);
+
           return t(n),n
         }
 
