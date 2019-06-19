@@ -2404,6 +2404,8 @@
                     e = s.isSameOrAfter(n.a) ? i(s) : n.a
                 }
                 var h = moment.tz.guess();
+                console.log(t);
+                
                 ($(".user_timezone").html("Times shown are in: " + h), selected_date.value === moment().format("YYYY-MM-DD")) ? moment().tz(h) > r && ($("#time_start").prop("disabled", !0), $("#time_start").attr("placeholder", "No more available slots for today")): ($("#time_start").prop("disabled", !1), $("#time_start").attr("placeholder", ""));
                 $("#time_start").timepicker({
                   timeFormat: p("yes"),
@@ -2421,7 +2423,7 @@
                                   var a = moment(i.end).add(query.bufferTime, "minutes");
                                   "00:00" === (a = moment(a).isAfter(moment(i.start).endOf("day")) ? "24:00" : moment(i.end).add(query.bufferTime, "minutes").format("HH:mm")) && (a = "24:00");
                                   var c = [u, a];
-                                    console.log(c);
+                                  console.log(c);
                                   e.push(c)
                               }
                           }
