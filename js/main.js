@@ -2475,8 +2475,7 @@
             },
             dataType: "jsonp",
             crossDomain:true,
-    jsonp: false,
-          	complete: function(respuesta){
+            complete: function(respuesta){
           console.log("Recibes: ", respuesta);
           $("<pre>").text(JSON.stringify(respuesta)).appendTo("body");
           	}
