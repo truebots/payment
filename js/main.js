@@ -2237,7 +2237,7 @@
                 return function() {
                     var n = t.apply(this, arguments);
                     return new Promise(function(t, e) {
-                        return function r(i, o) {
+                        return function r (i, o ) {
                             console.log('llega');
                             console.log(n);
                             console.log(i);
@@ -2248,6 +2248,10 @@
                             try {
                                 var u = n[i](o),
                                     a = u.value
+                                    console.log('llega3');
+                                    console.log(a);
+                                    console.log(u);
+                            
                             } catch (t) {
                                 return void e(t)
                             }
