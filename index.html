@@ -90,9 +90,9 @@
                                             <div id="W3" class="warning">
                                                 <p>A selection is required</p>
                                             </div>
-                                            <input type="text" id="time_end" disabled="true" class="hidden">
                                             <select name="OS" id="timestartpi2">
-                                           
+                                                    <button type="button" class="btn btn-default" onClick="agendar($('#datepicker').val(),$('#timestartpi').val(),$('#timestartpi2').val())">Done</button>
+       
                                            
                                         </div>
                                         
@@ -124,7 +124,6 @@
                 $('#timepicker2').timepicker({
                     uiLibrary: 'bootstrap'
                 });
-                $('#button').show();
                 
                 function direccion(fecha1){
     
@@ -176,6 +175,7 @@
                             }
                             document.getElementById('page_1').style.display = 'none';
                             document.getElementById('page_2').style.display = 'block';
+                            document.getElementById('button').style.display = 'block';
                             
                             
                         }
@@ -192,6 +192,7 @@
                     document.getElementById('page_1').style.display = 'inline';
                     document.getElementById('pro').style.display = 'none';
                     document.getElementById('page_2').style.display = 'none';
+                    document.getElementById('button').style.display = 'none';
                     
                     document.getElementById("timestartpi").innerHTML="";
                     document.getElementById("timestartpi2").innerHTML="";
