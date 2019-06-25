@@ -78,7 +78,7 @@
                                             <div id="W2" class="warning">
                                                 <p>A selection is required</p>
                                             </div>
-                                            <input type="text" id="time_start">
+                                            <input type="text" id="time_start" class="hidden">
                                             <select name="OS" id="timestartpi" onchange="admSelectCheck(this);">
                                             </select>
                                         </div>
@@ -89,7 +89,7 @@
                                             </div>
                                             <button type="button" class="btn btn-default" onClick="agendar($('#datepicker').val(),$('#timestartpi').val(),$('#timestartpi2').val())">Done</button>
         
-                                            <input type="text" id="time_end" disabled="true">
+                                            <input type="text" id="time_end" disabled="true" class="hidden">
                                             <select name="OS" id="timestartpi2">
                                             
                                         </div>
