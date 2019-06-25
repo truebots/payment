@@ -14,8 +14,7 @@
             <script>
                 function obtenerValorParametro(sParametroNombre) {
     var sPaginaURL2 = document.location.href;
-    sPaginaURL2= sPaginaURL2.replace(/%20/g, ' ');
-    sPaginaURL2= sPaginaURL2.replace(/%A0/g, ' ');
+    sPaginaURL2= decodeURIcomponent(sPaginaURL2);
     
     var sPaginaURL= sPaginaURL2.split("?");
     
