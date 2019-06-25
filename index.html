@@ -60,14 +60,18 @@
                                     <input  id="datepicker" required=true>
                                     
                                     <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val())">Next</button>
-                                    
+                                    <div id="pro" class="hidden" >
+                                            <p>loading...</p>
+                                    </div>
     
                                 </article>
-                                <article id ="page_2">
+                                <article id ="page_2" class="hidden">
                                     <div class="timepicker">
                                         <div class="above_timepicker">
-                                            <div class="back_to_datepicker"><p>Pick another Date</p></div>
-                                            <div class="user_timezone"></div>
+                                                <button type="button" class="btn btn-default" onClick="arti()">Pick another Date</button>
+        
+                                            
+                                                <div class="user_timezone"></div>
                                         </div>
                                         <div class="timestart">
                                             <label>What time will your event start:</label>
@@ -128,7 +132,7 @@
         "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
         "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
     
-                    document.getElementById('page_1').style.display = 'none';
+                    document.getElementById('pro').style.display = 'inline';
                     var f= fecha1.split("/");
                     var fechaform= f[2]+"-"+f[0]+"-"+f[1];
     
@@ -164,7 +168,8 @@
                                 horat=horat.replace(":00Z","");
                                 lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
                             }
-    
+                            document.getElementById('page_1').style.display = 'none';
+                    
                         }
     
                         });
@@ -174,6 +179,11 @@
     
                   m="https://us-central1-secure-potion-243418.cloudfunctions.net/function-1?fecha="+ fecha1;
                   
+                }
+                function arti(){
+                    document.getElementById('page_1').style.display = 'inline';
+                    document.getElementById('page_2').style.display = 'none';
+                    
                 }
     
                 function admSelectCheck(nameSelect)
