@@ -100,11 +100,11 @@
                                         
                                         
                                     </div>
-                                    <div class="timeend2">
+                                    <div id="timeend2">
                                             <button type="button" class="btn btn-default" onClick="agendar($('#datepicker').val(),$('#timestartpi').val(),$('#timestartpi2').val())">Done</button>
        
                                    
-                                           </div>
+                                    </div>
                                     
                                 </article>
                                 
@@ -179,7 +179,9 @@
                             }
                             document.getElementById('page_1').style.display = 'none';
                             document.getElementById('page_2').style.display = 'block';
-                    
+                            document.getElementById('timeend2').style.display = 'block';
+                            
+                            
                         }
     
                         });
@@ -196,6 +198,7 @@
                     document.getElementById('page_2').style.display = 'none';
                     document.getElementById("timestartpi").innerHTML="";
                     document.getElementById("timestartpi2").innerHTML="";
+                    
                 }
     
                 function admSelectCheck(nameSelect)
