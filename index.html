@@ -107,6 +107,11 @@
                                     </div>
                                     
                                 </article>
+                                <article id ="page_3" style="display: none;">
+                                         <button type="button" class="btn btn-default" onClick="agendar($('#datepicker').val(),$('#timestartpi').val(),$('#timestartpi2').val())">Done</button>
+           
+                                        
+                                    </article>
                                 
                             </form>
                         </div>
@@ -179,8 +184,8 @@
                             }
                             document.getElementById('page_1').style.display = 'none';
                             document.getElementById('page_2').style.display = 'block';
-                            document.getElementById('timeend2').style.display = 'block';
-                            
+                            document.getElementById('page_3').style.display = 'block';
+                    
                             
                         }
     
@@ -196,6 +201,8 @@
                     document.getElementById('page_1').style.display = 'inline';
                     document.getElementById('pro').style.display = 'none';
                     document.getElementById('page_2').style.display = 'none';
+                    document.getElementById('page_3').style.display = 'none';
+                    
                     document.getElementById("timestartpi").innerHTML="";
                     document.getElementById("timestartpi2").innerHTML="";
                     
