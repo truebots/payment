@@ -132,7 +132,7 @@
         "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
         "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
     
-                    document.getElementById('pro').style.display = 'inline';
+                    document.getElementById('pro').style.display = 'block';
                     var f= fecha1.split("/");
                     var fechaform= f[2]+"-"+f[0]+"-"+f[1];
     
@@ -169,6 +169,7 @@
                                 lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
                             }
                             document.getElementById('page_1').style.display = 'none';
+                            document.getElementById('page_2').style.display = 'block';
                     
                         }
     
