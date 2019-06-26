@@ -291,7 +291,7 @@
     "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
     "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
     "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
-    "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes", "token":obtenerValorParametro("token")};
+    "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes", "token":obtenerValorParametro("token"),"email_user":obtenerValorParametro("email_user")};
     
     document.getElementById('page_1').style.display = 'none';
     var f= fecha1.split("/");
@@ -312,7 +312,7 @@
                         eventEndTime: m2,
                         calendarId: query.calendarId,
                         timezone: ("GTM"+query.timezone+":00"),
-                        email_user: "li.forero@uniandes.edu.co",
+                        email_user: query.email_user,
                         place: query.place,
                         intervale: 60,
                         refresh_token: query.refresh_token,
