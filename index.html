@@ -252,7 +252,7 @@ rel = "stylesheet">
         
             <script>
     
-                
+                var busy=undefined;
                 $("#datepicker").datepicker("setDate", new Date());
                 $('#datepicker').datepicker({
                 "autoclose": true
@@ -271,13 +271,12 @@ rel = "stylesheet">
     
                     var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
         "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
-        "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+        "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),
         "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
-        "bufferTime":obtenerValorParametro("bufferTime"),"enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),
-        "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
+        "bufferTime":obtenerValorParametro("bufferTime"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
         "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
         "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
-        "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
+        "enableRealSlots":obtenerValorParametro("enableRealSlots")};
     
                     document.getElementById('pro').style.display = 'block';
                     var f= fecha1.split("/");
@@ -300,6 +299,7 @@ rel = "stylesheet">
                             crossDomain:true,
                             success: function(respuesta){
                             console.log(respuesta);
+                            busy=respuesta;
                             var n=JSON.stringify(respuesta)
                             console.log(n);
                             var lista = document.getElementById("timestartpi");
@@ -345,13 +345,12 @@ rel = "stylesheet">
                     {
                         var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
         "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
-        "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+        "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),
         "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
-        "bufferTime":obtenerValorParametro("bufferTime"),"enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),
-        "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
+        "bufferTime":obtenerValorParametro("bufferTime"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
         "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
         "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
-        "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes"};
+        "enableRealSlots":obtenerValorParametro("enableRealSlots")};
     
                     
                         console.log(nameSelect);
@@ -426,13 +425,12 @@ rel = "stylesheet">
     
     var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
     "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
-    "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),"fbPixelId":obtenerValorParametro("fbPixelId"),
+    "email_user":obtenerValorParametro("email_user"),"calendarId":obtenerValorParametro("calendarId"),
     "bookingStartTime":obtenerValorParametro("bookingStartTime"),"bookingEndTime":obtenerValorParametro("bookingEndTime"),
-    "bufferTime":obtenerValorParametro("bufferTime"),"enableDoubleBooking":obtenerValorParametro("enableDoubleBooking"),
-    "bookingType":obtenerValorParametro("bookingType"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
+    "bufferTime":obtenerValorParametro("bufferTime"),"bookingDays":obtenerValorParametro("bookingDays"),"eventTitle":obtenerValorParametro("eventTitle"),
     "eventDescription":obtenerValorParametro("eventDescription"),"eventStatus":obtenerValorParametro("eventStatus"),
     "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
-    "enableRealSlots":obtenerValorParametro("enableRealSlots"), "enableAMPM": "yes", "token":obtenerValorParametro("token"),"email_user":obtenerValorParametro("email_user")};
+    "enableRealSlots":obtenerValorParametro("enableRealSlots"), "token":obtenerValorParametro("token")};
     
     document.getElementById('page_1').style.display = 'none';
     var f= fecha1.split("/");
