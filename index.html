@@ -63,6 +63,8 @@
                                         <p>A selection is required</p>
                                     </div>
                                     <input   id="datepicker" required=true>
+                                    <div   id="datepicker2" required=true>></div>
+                                    
                                     <br>
                                     <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val())">Next</button>
                                     <br>
@@ -126,7 +128,7 @@
                     showOnFocus: false
                     
                 });
-                $('#datepicker').datepicker('show');
+                $('#datepicker2').datepicker();
 
                 $('#timepicker').timepicker({
                     uiLibrary: 'bootstrap'
