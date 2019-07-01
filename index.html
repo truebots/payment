@@ -59,7 +59,7 @@
                                     <div id="W1" class="warning">
                                         <p>A selection is required</p>
                                     </div>
-                                    <input  id="datepicker" required=true>
+                                    <input  class="hidden" id="datepicker" required=true>
                                     <br>
                                     <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val())">Next</button>
                                     <br>
@@ -120,9 +120,10 @@
     
                 $('#datepicker').datepicker({
                     uiLibrary: 'bootstrap',
-                    inline: true,
-                    sideBySide: true
+                    
                 });
+                $('#datepicker').datepicker('show');
+
                 $('#timepicker').timepicker({
                     uiLibrary: 'bootstrap'
                 });
