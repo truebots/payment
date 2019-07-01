@@ -70,7 +70,7 @@ rel = "stylesheet">
                                     <div   id="datepicker2" ></div>
                                     
                                     <br>
-                                    <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val())">Next</button>
+                                    <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val(),$('#datepicker2').val())">Next</button>
                                     <br>
                                     <div id="pro" style="display: none;">
                                             <p>loading...</p>
@@ -129,7 +129,7 @@ rel = "stylesheet">
     
                 $('#datepicker').datepicker({
                     uiLibrary: 'bootstrap',
-                    showOnFocus: false
+                    
                     
                 });
                 $('#datepicker2').datepicker();
@@ -141,7 +141,9 @@ rel = "stylesheet">
                     uiLibrary: 'bootstrap'
                 });
                 
-                function direccion(fecha1){
+                function direccion(fecha1,f2){
+                    console.log(fecha1);
+                    console.log(f2);
     
                     var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
         "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
