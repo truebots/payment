@@ -218,7 +218,7 @@ rel = "stylesheet">
                                                 <p>A selection is required</p>
                                             </div>
                                             <input type="text" id="time_start" class="hidden">
-                                            <select name="OS" id="timestartpi" onchange="admSelectCheck(this);">
+                                            <select name="OS" id="timestartpi" onchange="admSelectCheck();">
                                             </select>
                                         </div>
                                         <div class="timeend">
@@ -321,6 +321,7 @@ rel = "stylesheet">
                                 lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
                                 }
                             }
+                            admSelectCheck();
                             document.getElementById('page_1').style.display = 'none';
                             document.getElementById('page_2').style.display = 'block';
                             document.getElementById('button').style.display = 'block';
@@ -347,7 +348,7 @@ rel = "stylesheet">
                     
                 }
     
-                function admSelectCheck(nameSelect)
+                function admSelectCheck()
                     {
                         var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
         "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
@@ -364,25 +365,30 @@ rel = "stylesheet">
                         var temp=datet+"T"+m+":00Z";
                         var entro=false;
                         var lista = document.getElementById("timestartpi2");
-                            
+                        var resp=[];  
                         for (var i = 0; i <busy.length; i++) {
 
-                        if(temp==busy[i].start){
+                            if(temp==busy[i].start){
                             
                             var m2= busy[i].end;
                             var temp2= m2.split("T");
                             var horat= temp2[1];
                             horat=horat.replace(":00Z","");
-                            
+                            if(resp.includes(horat)==false){
+                                
                             if(entro==false){
                                 entro=true;
+                                resp.push(horat);
+                                
                                 lista.innerHTML="";
                                 lista.innerHTML +="<option value="+horat+" selected='selected'>"+horat+"</option> ";
                                 
                             }else{
+                                resp.push(horat);
                                 lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
                             }
-                        }
+                            }
+                            }
                         }
 
 
