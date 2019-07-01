@@ -253,6 +253,7 @@ rel = "stylesheet">
             <script>
     
                 var busy=undefined;
+                var datet=undefined;
                 $("#datepicker").datepicker("setDate", new Date());
                 $('#datepicker').datepicker({
                 "autoclose": true
@@ -281,7 +282,7 @@ rel = "stylesheet">
                     document.getElementById('pro').style.display = 'block';
                     var f= fecha1.split("/");
                     var fechaform= f[2]+"-"+f[0]+"-"+f[1];
-    
+                    datet=fechaform;
                     $.ajax({
                             type: "GET",
                             url: "https://us-central1-secure-potion-243418.cloudfunctions.net/function-gcalendar-1?callback=?",
@@ -353,71 +354,31 @@ rel = "stylesheet">
         "enableRealSlots":obtenerValorParametro("enableRealSlots")};
     
                     
-                        console.log(nameSelect);
-    
+
                         var m=document.getElementById("timestartpi").value;
-    
-                        var temp= m.split(":");
-    
-                        var horas=temp[0];
-                        var minutos=temp[1]
-    
-                        if(horas.startsWith("0")){
-                            horas= horas.replace("0","");
-                        }
-                        if(minutos.startsWith("0")){
-                            minutos= minutos.replace("0","");
-                        }
-                        var min= query.eventDurationMin;
-                        var max=query.eventDurationMax;
-    
-                        var op= min%60;
-                        var op2= max%60;
-                        
-    
-                        var horasmi=parseInt(horas)+(Math.trunc(min/60));
-                        var horasma=parseInt(horas)+(Math.trunc(max/60));
-    
-                        var minmi=minutos;
-                        var minma=minutos;
-    
-                        if(op!=0){
-                            var t=minmi+min;
-                            if(t>=60){
-                                var m= t-60;
-                                var u=Math.trunc(m/60);
-                                for (var i = 0; i <u; i++) {
-                                    m=m-60;
-                                    horasmi=horasmi+1;
-                                }
-                                minmi=m;
+                        var temp=datet+"T"+m+":00Z";
+                        var entro=false;
+
+                        for (var i = 0; i <busy.length; i++) {
+
+                        if(temp==busy[i].start){
+                            
+                            var m= respuesta[i].end;
+                            var temp= m.split("T");
+                            var horat= temp[1];
+                            horat=horat.replace(":00Z","");
+                            
+                            if(entro==false){
+                                lista.innerHTML="";
+                                lista.innerHTML +="<option value="+horat+" selected='selected'>"+horat+"</option> ";
+                                entro=true;
+                            }else{
+                                lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
                             }
                         }
-                        if(op2!=0){
-                            var t=minma+min;
-                            if(t>=60){
-                                var m= t-60;
-                                var u=Math.trunc(m/60);
-                                for (var i = 0; i <u; i++) {
-                                    m=m-60;
-                                    horasma=horasma+1;
-                                }
-                                minma=m;
-                            }
                         }
-                        if(minma==0){
-                            minma='00';
-                        }
-                        if(minmi==0){
-                            minmi='00';
-                        }
-                        var horat=horasmi+":"+minmi;
-                        var horat2=horasma+":"+minma;
-                        var lista = document.getElementById("timestartpi2");
-                        lista.innerHTML="";
-                        lista.innerHTML +="<option value="+horat+" selected='selected'>"+horat+"</option> ";
-                        lista.innerHTML +="<option value="+horat2+">"+horat2+"</option> ";
-                        
+
+
                         
                     }
     
