@@ -279,6 +279,8 @@ rel = "stylesheet">
         "eventDurationMin":obtenerValorParametro("eventDurationMin"),"eventDurationMax":obtenerValorParametro("eventDurationMax"),
         "enableRealSlots":obtenerValorParametro("enableRealSlots")};
     
+
+    
                     document.getElementById('pro').style.display = 'block';
                     var f= fecha1.split("/");
                     var fechaform= f[2]+"-"+f[0]+"-"+f[1];
@@ -304,19 +306,20 @@ rel = "stylesheet">
                             console.log(respuesta);
                             busy=respuesta;
                             var n=JSON.stringify(respuesta)
-                            console.log(n);
                             var lista = document.getElementById("timestartpi");
                             lista.innerHTML="";
+                            var resp=[];
                             for (var i = 0; i <respuesta.length; i++) {
-                                console.log(respuesta);
-                                console.log(respuesta[i]);
-                                console.log(respuesta[i].start);
+                                
     
                                 var m= respuesta[i].start;
                                 var temp= m.split("T");
                                 var horat= temp[1];
                                 horat=horat.replace(":00Z","");
+                                if(resp.includes(horat)==false){
+                                resp.push(horat);
                                 lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
+                                }
                             }
                             document.getElementById('page_1').style.display = 'none';
                             document.getElementById('page_2').style.display = 'block';
@@ -366,15 +369,16 @@ rel = "stylesheet">
 
                         if(temp==busy[i].start){
                             
-                            var m= busy[i].end;
-                            var temp= m.split("T");
-                            var horat= temp[1];
+                            var m2= busy[i].end;
+                            var temp2= m2.split("T");
+                            var horat= temp2[1];
                             horat=horat.replace(":00Z","");
                             
                             if(entro==false){
+                                entro=true;
                                 lista.innerHTML="";
                                 lista.innerHTML +="<option value="+horat+" selected='selected'>"+horat+"</option> ";
-                                entro=true;
+                                
                             }else{
                                 lista.innerHTML +="<option value="+horat+">"+horat+"</option> ";
                             }
