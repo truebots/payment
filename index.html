@@ -66,11 +66,11 @@ rel = "stylesheet">
                                     <div id="W1" class="warning">
                                         <p>A selection is required</p>
                                     </div>
-                                    <input   id="datepicker" required=true>
+                                    <input  class="hidden" id="datepicker" required=true>
                                     <div   id="datepicker2" ></div>
                                     
                                     <br>
-                                    <button type="button" class="btn btn-default" onClick="direccion($('#datepicker').val(),$('#datepicker2').val())">Next</button>
+                                    <button type="button" class="btn btn-primary btn-lg btn-block" onClick="direccion($('#datepicker2').val())">Next</button>
                                     <br>
                                     <div id="pro" style="display: none;">
                                             <p>loading...</p>
@@ -132,7 +132,12 @@ rel = "stylesheet">
                     
                     
                 });
-                $('#datepicker2').datepicker();
+
+                $("#datepicker2").datepicker("setDate", new Date());
+                $('#datepicker2').datepicker({
+                "autoclose": true
+                });
+
 
                 $('#timepicker').timepicker({
                     uiLibrary: 'bootstrap'
@@ -141,9 +146,8 @@ rel = "stylesheet">
                     uiLibrary: 'bootstrap'
                 });
                 
-                function direccion(fecha1,f2){
-                    console.log(fecha1);
-                    console.log(f2);
+                function direccion(fecha1){
+                    
     
                     var query = {"userId":obtenerValorParametro("userId"),"botId":obtenerValorParametro("botId"),"timezone": obtenerValorParametro("timezone"),
         "place":obtenerValorParametro("place"),"refresh_token":obtenerValorParametro("refresh_token"),
