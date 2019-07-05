@@ -18,6 +18,9 @@
 rel = "stylesheet">
 <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <style>
 
 
@@ -218,7 +221,7 @@ rel = "stylesheet">
                                                 <p>A selection is required</p>
                                             </div>
                                             <input type="text" id="time_start" class="hidden">
-                                            <select name="OS" id="timestartpi" class="selectpicker" onchange="admSelectCheck();">
+                                            <select name="OS" id="timestartpi" class="selectpicker form-control" onchange="admSelectCheck();">
                                             </select>
                                         </div>
                                         <div class="timeend">
@@ -226,7 +229,7 @@ rel = "stylesheet">
                                             <div id="W3" class="warning">
                                                 <p>A selection is required</p>
                                             </div>
-                                            <select name="OS" id="timestartpi2" class="selectpicker">
+                                            <select name="OS" id="timestartpi2" class="selectpicker form-control">
                                                     <button type="button" class="btn btn-primary btn-lg btn-block" onClick="agendar($('#datepicker').val(),$('#timestartpi').val(),$('#timestartpi2').val())">Done</button>
        
                                                     <select name="OS" id="timestartpi3" class="hidden">
