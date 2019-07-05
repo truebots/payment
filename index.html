@@ -22,7 +22,9 @@ rel = "stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
-
+.body{
+    font-size: 12pt;
+}
 
 .ui-datepicker {
     margin: 5px auto 0;
@@ -191,12 +193,14 @@ rel = "stylesheet">
                         <div class="col-md-12">
                             <form id="datetime">
                                 <article id="page_1">
+                                    <br>
+                                    <br>
                                     <label>Select a date:</label>
                                     <div id="W1" class="warning">
                                         <p>A selection is required</p>
                                     </div>
                                     <div   id="datepicker" ></div>
-                                    
+                                    <br>
                                     <br>
                                     <button type="button" class="btn btn-primary btn-lg btn-block" onClick="direccion($('#datepicker').val())">Next</button>
                                     <br>
@@ -207,7 +211,9 @@ rel = "stylesheet">
                                 </article>
                                 <article id ="page_2" style="display: none;">
                                     <div class="timepicker">
+                                        <br>
                                         <div class="above_timepicker">
+                                                <br>
                                                 <button type="button" class="btn btn-outline-primary" onClick="arti()">Pick another Date</button>
         
                                             
@@ -216,9 +222,14 @@ rel = "stylesheet">
                                         <br>
                                         
                                         <div class="timestart">
+                                                <br>
+                                                <br>
+                                                <br>
                                             <label>What time will your event start:</label>
                                             <div id="W2" class="warning">
+                                                    <br>
                                                 <p>A selection is required</p>
+                                                <br>
                                             </div>
                                             <input type="text" id="time_start" class="hidden">
                                             <select name="OS" id="timestartpi" class="selectpicker form-control" onchange="admSelectCheck();">
