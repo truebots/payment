@@ -46,21 +46,7 @@ function obtenerValorParametro(sParametroNombre) {
       return null;
       }
       var query = {"e":obtenerValorParametro("extra")};
-
-
-      ($.ajax({
-                type: "GET",
-                url: "https://us-central1-secure-potion-243418.cloudfunctions.net/ES-function-addPurchaseOrder?callback=?",
-                data: {
-                            extra: query.e
-                            
-                },
-                dataType: "jsonp",
-                crossDomain:true,
-                        
-                success: function(t) {
-                    console.log(t);
-                    var m=btoa(query.e);
+      var m=btoa(query.e);
             var f=JSON.parse(m);
             var lista = document.getElementById("o1");
                 
@@ -201,6 +187,20 @@ function obtenerValorParametro(sParametroNombre) {
                       document.getElementById("extra1").value =query.e;
 
 
+
+      ($.ajax({
+                type: "GET",
+                url: "https://us-central1-secure-potion-243418.cloudfunctions.net/ES-function-addPurchaseOrder?callback=?",
+                data: {
+                            extra: query.e
+                            
+                },
+                dataType: "jsonp",
+                crossDomain:true,
+                        
+                success: function(t) {
+                    console.log(t);
+                    
                     
                 },
                 error: function(t) {
