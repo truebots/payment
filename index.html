@@ -15,8 +15,206 @@
     <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
     <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-  
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="css/style.css">
+
+
+
+
+<script>
+            (function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/messenger.Extensions.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'Messenger'));
+
+
+function obtenerValorParametro(sParametroNombre) {
+          var sPaginaURL2 = decodeURIComponent(document.location.href);
+          
+          var sPaginaURL= sPaginaURL2.split("?");
+          var sURLVariables = sPaginaURL[1].split('&');
+            for (var i = 0; i < sURLVariables.length; i++) {
+              var sParametro = sURLVariables[i].split('=');
+              if (sParametro[0] == sParametroNombre) {
+                return sParametro[1];
+              }
+      }
+      return null;
+      }
+      var query = {"e":obtenerValorParametro("extra")};
+
+
+      ($.ajax({
+                type: "GET",
+                url: "https://us-central1-secure-potion-243418.cloudfunctions.net/ES-function-addPurchaseOrder?callback=?",
+                data: {
+                            extra: query.e
+                            
+                },
+                dataType: "jsonp",
+                crossDomain:true,
+                        
+                success: function(t) {
+                    console.log(t);
+                    MessengerExtensions.requestCloseBrowser(function success() {
+                        // webview closed
+                      }, function error(err) {
+                        // an error occurred
+                      });
+                },
+                error: function(t) {
+                    console.log(t);
+                }
+            }));
+            var m=btoa(query.e);
+            var f=JSON.parse(m);
+            var lista = document.getElementById("o1");
+                
+                lista.innerHTML="";
+                lista.innerHTML +="<tr>";
+                lista.innerHTML +="<td>Order number</td>";
+                lista.innerHTML +="<td>: 14567890</td>";
+                lista.innerHTML +="</tr>";
+                lista.innerHTML +="<tr>";
+                lista.innerHTML +="<td>Date</td>";
+                lista.innerHTML +="<td>: "+f.date+"</td>";
+                lista.innerHTML +="</tr>";
+                lista.innerHTML +="<tr>";
+                lista.innerHTML +="<td>Total</td>";
+                lista.innerHTML +="<td>: "+f.currency+" "+f.amount +"</td>";
+                lista.innerHTML +="</tr>";
+                lista.innerHTML +="<tr>";
+                lista.innerHTML +="<td>Payment method</td>";
+                lista.innerHTML +="<td>: Check payments</td>";
+                lista.innerHTML +="</tr>";
+            
+                var lista = document.getElementById("o2");
+              
+                lista.innerHTML="";
+                lista.innerHTML +="<tr>";
+                  lista.innerHTML +="<td>Street</td>";
+                  lista.innerHTML +="<td>: "+f.user[4]+"</td>";
+                  lista.innerHTML +=" </tr>";
+                  lista.innerHTML +="<tr>";
+                    lista.innerHTML +="<td>City</td>";
+                    lista.innerHTML +="<td>: "+f.user[5]+"</td>";
+                    lista.innerHTML +="</tr>";
+                    lista.innerHTML +="<tr>";
+                      lista.innerHTML +="<td>Country</td>";
+                      lista.innerHTML +="<td>: "+f.user[6]+"</td>";
+                      lista.innerHTML +="</tr>";
+                      lista.innerHTML +="<tr>";
+                        lista.innerHTML +="<td>Postcode</td>";
+                        lista.innerHTML +="<td>: "+f.user[7]+"</td>";
+                        lista.innerHTML +="</tr>";
+
+
+
+
+
+
+                        var lista = document.getElementById("o3");
+              
+                lista.innerHTML="";
+                lista.innerHTML +="<thead>";
+                      
+                  lista.innerHTML +="</thead>";
+                  lista.innerHTML +="<tbody>";
+                    lista.innerHTML +="<tr>";
+                      lista.innerHTML +="<td>";
+                        lista.innerHTML +="<h4>Subtotal</h4>";
+                        lista.innerHTML +="</td>";
+                        lista.innerHTML +="<td>";
+                          lista.innerHTML +="<h5></h5>";
+                          lista.innerHTML +="</td>";
+                          lista.innerHTML +="<td>";
+                            lista.innerHTML +="<p>$"+f.amount+"</p>";
+                            lista.innerHTML +="</td>";
+                            lista.innerHTML +="</tr>";
+                            lista.innerHTML +="<tr>";
+                              lista.innerHTML +="<td>";
+                                lista.innerHTML +="<h4>Shipping</h4>";
+                                lista.innerHTML +="</td>";
+                                lista.innerHTML +="<td>";
+                                  lista.innerHTML +="<h5></h5>";
+                                  lista.innerHTML +="</td>";
+                                  lista.innerHTML +="<td>";
+                                    lista.innerHTML +="<p>Flat rate: $0.00</p>";
+                                    lista.innerHTML +="</td>";
+                                    lista.innerHTML +="</tr>";
+                                    lista.innerHTML +="<tr>";
+                                      lista.innerHTML +="<td>";
+                                        lista.innerHTML +="<h4>Total</h4>";
+                                        lista.innerHTML +="</td>";
+                                        lista.innerHTML +="<td>";
+                                          lista.innerHTML +="<h5></h5>";
+                                          lista.innerHTML +="</td>";
+                                          lista.innerHTML +="<td>";
+                                            lista.innerHTML +="<h4>$"+f.amount+"</h4>";
+                                            lista.innerHTML +="</td>";
+                                            lista.innerHTML +="</tr>";
+                                            lista.innerHTML +="</tbody>";
+
+
+
+
+                                            var lista = document.getElementById("o9");
+              
+                lista.innerHTML="";
+                lista.innerHTML +="<thead>";
+                  lista.innerHTML +="<tr>";
+                    lista.innerHTML +='<th scope="col">Product</th>';
+                    lista.innerHTML +='<th scope="col">Price</th>';
+                    lista.innerHTML +='<th scope="col">Quantity</th>';
+                    lista.innerHTML +='<th scope="col">Total</th>';
+                    lista.innerHTML +="</tr>";
+                    lista.innerHTML +="</thead>";
+                    lista.innerHTML +="<tbody>";
+                      
+                      
+                      for(var m=0; m<f.productos.length ; m++){
+
+                        lista.innerHTML +="<tr>";
+                          lista.innerHTML +="<td>";
+                            lista.innerHTML +='<div class="media">';
+                              lista.innerHTML +='<div class="d-flex">';
+                                lista.innerHTML +='<img src="'+f.productos[m].image_url+'" alt="">';
+                                lista.innerHTML +="</div>";
+                                lista.innerHTML +='<div class="media-body">';
+                                  lista.innerHTML +="<p>"+f.productos[m].title+"</p>";
+                                  lista.innerHTML +="</div>";
+                                  lista.innerHTML +="</div>";
+                                  lista.innerHTML +="</td>";
+                                  lista.innerHTML +="<td>";
+                                    lista.innerHTML +="<h5>$"+f.productos[m].price+"</h5>";
+                                    lista.innerHTML +="</td>";
+                                    lista.innerHTML +="<td>";
+                                      lista.innerHTML +="<h5>"+f.productos[m].quantity+"</h5>";
+                                      lista.innerHTML +="</td>";
+                                      lista.innerHTML +="<td>";
+                                        lista.innerHTML +="<h5>$"+parseInt(f.productos[m].amount)*parseInt(f.productos[m].quantity)+"</h5>";
+                                        lista.innerHTML +="</td>";
+                                        lista.innerHTML +="</tr>";
+
+
+
+                      }
+                      
+                      
+
+                      lista.innerHTML +="</tbody>";
+                      document.getElementById("amount").value = f.amount;
+
+</script>
+
+
+
   </head>
   <body>
   
@@ -46,72 +244,20 @@
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Order Info</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Order number</td>
-                <td>: 60235</td>
-              </tr>
-              <tr>
-                <td>Date</td>
-                <td>: Oct 03, 2017</td>
-              </tr>
-              <tr>
-                <td>Total</td>
-                <td>: USD 2210</td>
-              </tr>
-              <tr>
-                <td>Payment method</td>
-                <td>: Check payments</td>
-              </tr>
+            <table id="o1"class="order-rable">
+              
             </table>
           </div>
         </div>
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div class="confirmation-card">
             <h3 class="billing-title">Billing Address</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Street</td>
-                <td>: 56/8 panthapath</td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td>: Dhaka</td>
-              </tr>
-              <tr>
-                <td>Country</td>
-                <td>: Bangladesh</td>
-              </tr>
-              <tr>
-                <td>Postcode</td>
-                <td>: 1205</td>
-              </tr>
+            <table id="o2" class="order-rable">
+             
             </table>
           </div>
         </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Shipping Address</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Street</td>
-                <td>: 56/8 panthapath</td>
-              </tr>
-              <tr>
-                <td>City</td>
-                <td>: Dhaka</td>
-              </tr>
-              <tr>
-                <td>Country</td>
-                <td>: Bangladesh</td>
-              </tr>
-              <tr>
-                <td>Postcode</td>
-                <td>: 1205</td>
-              </tr>
-            </table>
-          </div>
-        </div>
+        
       </div>
       
   </section>
@@ -123,82 +269,8 @@
      
       <div class="cart_inner">
         <div class="table-responsive">
-          <table class="table">
-                  <thead>
-                      <tr>
-                          <th scope="col">Product</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Quantity</th>
-                          <th scope="col">Total</th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>
-                              <div class="media">
-                                  <div class="d-flex">
-                                      <img src="img/cart/cart1.png" alt="">
-                                  </div>
-                                  <div class="media-body">
-                                      <p>Minimalistic shop for multipurpose use</p>
-                                  </div>
-                              </div>
-                          </td>
-                          <td>
-                              <h5>$360.00</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                              <h5>$720.00</h5>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div class="media">
-                                  <div class="d-flex">
-                                      <img src="img/cart/cart2.png" alt="">
-                                      
-                                  </div>
-                                  <div class="media-body">
-                                      <p>Minimalistic shop for multipurpose use</p>
-                                  </div>
-                              </div>
-                          </td>
-                          <td>
-                              <h5>$360.00</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                              <h5>$720.00</h5>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div class="media">
-                                  <div class="d-flex">
-                                      <img src="img/cart/cart3.png" alt="">
-                                  </div>
-                                  <div class="media-body">
-                                      <p>Minimalistic shop for multipurpose use</p>
-                                  </div>
-                              </div>
-                          </td>
-                          <td>
-                              <h5>$360.00</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                              <h5>$720.00</h5>
-                          </td>
-                      </tr>
-
-                    </tbody>
+          <table id="o9" class="table">
+                 
                   </table>
                   
                 </div>
@@ -206,45 +278,8 @@
                 <div class="order_details_table">
                   <h2>Order Details</h2>
                   <div class="table-responsive">
-                    <table class="table">
-                      <thead>
+                    <table if="o3" class="table">
                       
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <h4>Subtotal</h4>
-                          </td>
-                          <td>
-                            <h5></h5>
-                          </td>
-                          <td>
-                            <p>$2160.00</p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h4>Shipping</h4>
-                          </td>
-                          <td>
-                            <h5></h5>
-                          </td>
-                          <td>
-                            <p>Flat rate: $50.00</p>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <h4>Total</h4>
-                          </td>
-                          <td>
-                            <h5></h5>
-                          </td>
-                          <td>
-                            <h4>$2210.00</h4>
-                          </td>
-                        </tr>
-                      </tbody>
                     </table>
                   </div>
                 </div>
