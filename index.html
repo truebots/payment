@@ -49,8 +49,12 @@ function obtenerValorParametro(sParametroNombre) {
       var m=btoa(query.e);
             var f=JSON.parse(m);
             var lista = document.getElementById("o1");
-                
+            
+              
+          
                 lista.innerHTML="";
+                lista.innerHTML +='<h3 class="billing-title">Order Info</h3>';
+            lista.innerHTML +='<table class="order-rable">';
                 lista.innerHTML +="<tr>";
                 lista.innerHTML +="<td>Order number</td>";
                 lista.innerHTML +="<td>: 14567890</td>";
@@ -67,27 +71,36 @@ function obtenerValorParametro(sParametroNombre) {
                 lista.innerHTML +="<td>Payment method</td>";
                 lista.innerHTML +="<td>: Check payments</td>";
                 lista.innerHTML +="</tr>";
-            
+                lista.innerHTML +="</table>";
                 var lista = document.getElementById("o2");
               
+
+                
+                  
+
+
+
                 lista.innerHTML="";
+                lista.innerHTML +='<h3 class="billing-title">Billing Address</h3>';
+                lista.innerHTML +='<table class="order-rable">';
+             
                 lista.innerHTML +="<tr>";
                   lista.innerHTML +="<td>Street</td>";
-                  lista.innerHTML +="<td>: "+f.user[4]+"</td>";
+                  lista.innerHTML +="<td>: "+f.user.address+"</td>";
                   lista.innerHTML +=" </tr>";
                   lista.innerHTML +="<tr>";
                     lista.innerHTML +="<td>City</td>";
-                    lista.innerHTML +="<td>: "+f.user[5]+"</td>";
+                    lista.innerHTML +="<td>: "+f.user.city+"</td>";
                     lista.innerHTML +="</tr>";
                     lista.innerHTML +="<tr>";
                       lista.innerHTML +="<td>Country</td>";
-                      lista.innerHTML +="<td>: "+f.user[6]+"</td>";
+                      lista.innerHTML +="<td>: "+f.user.country+"</td>";
                       lista.innerHTML +="</tr>";
                       lista.innerHTML +="<tr>";
                         lista.innerHTML +="<td>Postcode</td>";
-                        lista.innerHTML +="<td>: "+f.user[7]+"</td>";
+                        lista.innerHTML +="<td>: "+f.user.postalcode+"</td>";
                         lista.innerHTML +="</tr>";
-
+                        lista.innerHTML +="</table>";
 
 
 
@@ -96,6 +109,7 @@ function obtenerValorParametro(sParametroNombre) {
                         var lista = document.getElementById("o3");
               
                 lista.innerHTML="";
+                lista.innerHTML='<table  class="table">';
                 lista.innerHTML +="<thead>";
                       
                   lista.innerHTML +="</thead>";
@@ -134,13 +148,16 @@ function obtenerValorParametro(sParametroNombre) {
                                             lista.innerHTML +="</td>";
                                             lista.innerHTML +="</tr>";
                                             lista.innerHTML +="</tbody>";
-
+                                            lista.innerHTML="</table>";
+                      
 
 
 
                                             var lista = document.getElementById("o9");
               
                 lista.innerHTML="";
+                lista.innerHTML='<table  class="table">';
+                 
                 lista.innerHTML +="<thead>";
                   lista.innerHTML +="<tr>";
                     lista.innerHTML +='<th scope="col">Product</th>';
@@ -151,7 +168,7 @@ function obtenerValorParametro(sParametroNombre) {
                     lista.innerHTML +="</thead>";
                     lista.innerHTML +="<tbody>";
                       
-                      
+                        
                       for(var m=0; m<f.productos.length ; m++){
 
                         lista.innerHTML +="<tr>";
@@ -183,6 +200,8 @@ function obtenerValorParametro(sParametroNombre) {
                       
 
                       lista.innerHTML +="</tbody>";
+                      lista.innerHTML="</table>";
+                      
                       document.getElementById("amount").value = f.amount;
                       document.getElementById("extra1").value =query.e;
 
@@ -245,19 +264,13 @@ function obtenerValorParametro(sParametroNombre) {
       <p class="text-center billing-alert">Thank you. Your order has been received.</p>
       <div class="row mb-5">
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Order Info</h3>
-            <table id="o1"class="order-rable">
-              
-            </table>
+          <div id="o1" class="confirmation-card">
+            
           </div>
         </div>
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Billing Address</h3>
-            <table id="o2" class="order-rable">
-             
-            </table>
+          <div  id="o2" class="confirmation-card">
+            
           </div>
         </div>
         
@@ -270,20 +283,16 @@ function obtenerValorParametro(sParametroNombre) {
 
  <div class="container">
      
-      <div class="cart_inner">
-        <div class="table-responsive">
-          <table id="o9" class="table">
-                 
-                  </table>
+      <div  class="cart_inner">
+        <div id="o9"class="table-responsive">
+          
                   
                 </div>
                
                 <div class="order_details_table">
                   <h2>Order Details</h2>
-                  <div class="table-responsive">
-                    <table if="o3" class="table">
-                      
-                    </table>
+                  <div id="o3" class="table-responsive">
+                    
                   </div>
                 </div>
                 <br>
