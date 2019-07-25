@@ -47,6 +47,7 @@ function obtenerValorParametro(sParametroNombre) {
       }
       var query = {"e":obtenerValorParametro("extra")};
       var m=btoa(query.e);
+      console.log(m);
             var f=JSON.parse(m);
             var lista = document.getElementById("o1");
             console.log(f);
