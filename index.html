@@ -194,7 +194,7 @@ function obtenerValorParametro(sParametroNombre) {
                           
                           <input name="Submit"   class="button button-coupon"      type="submit"  value="Enviar" >
                         </form>
-                     
+                     <br>
                    <button   class="button button-coupon" onclick="myFunction()">Cancelar</button>
                        
 
@@ -274,7 +274,7 @@ function obtenerValorParametro(sParametroNombre) {
   $("#order3 tbody").append(
     "<tr>"+"<td>"+"<h4>Subtotal</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+
       "<p>"+f.currency+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
-        "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: $0.00</p>"+"</td>"+"</tr>"+"<tr>"
+        "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: "+f.currency+"0.00</p>"+"</td>"+"</tr>"+"<tr>"
           +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>"+f.currency+f.amount+"</h4>"+
             "</td>"+"</tr>"
   );
@@ -294,7 +294,7 @@ var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
         +"</div>"+"</div>"+"</td>" +
         "<td>"+"<h5>"+f.currency+f.productos[m].price+"</h5>"+"</td>" +
         "<td>"+"<h5>"+f.productos[m].quantity+"</h5>"+"</td>" +
-        "<td>"+"<h5>$"+total+"</h5>"+"</td>" +
+        "<td>"+"<h5>"+f.currency+total+"</h5>"+"</td>" +
       "</tr>"
   );
                     
