@@ -48,6 +48,7 @@ function obtenerValorParametro(sParametroNombre) {
       var query = {"e":obtenerValorParametro("extra")};
       var m=atob(query.e);
       console.log(m);
+      m=decodeURIComponent(m);
             var f=JSON.parse(m);
             var lista = document.getElementById("o1");
             console.log(f);
@@ -114,12 +115,16 @@ function obtenerValorParametro(sParametroNombre) {
       <div class="row mb-5">
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div id="o1" class="confirmation-card">
-            
+              <h3 class="billing-title">Order Info</h3>
+              <table id="order1" class="order-table">
+              </table>
           </div>
         </div>
         <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
           <div  id="o2" class="confirmation-card">
-            
+              <h3 class="billing-title">Billing Address</h3>
+              <table id="order2" class="order-table">
+              </table>
           </div>
         </div>
         
@@ -152,7 +157,13 @@ function obtenerValorParametro(sParametroNombre) {
                   <h2>Order Details</h2>
                   <div  class="table-responsive">
                     <div id="o3">
-          
+                        <table id="order3" class="table">
+                          <thead>
+                            </thead>
+                            <tbody>
+                              
+                            </tbody>
+                          </table>
                   
                     </div>
                   </div>
@@ -218,112 +229,43 @@ function obtenerValorParametro(sParametroNombre) {
   var query = {"e":obtenerValorParametro("extra")};
   var m=atob(query.e);
   console.log(m);
+  m=decodeURIComponent(m);
+
         var f=JSON.parse(m);
                   
         var lista = document.getElementById("o1");
         console.log(f);
           
+        $("#order1 tbody").append(
+          "<tr>"+"<td>Order number</td>"+"<td>: 14567890</td>"+"</tr>"+"<tr>"+"<td>Date</td>"
+            +"<td>: "+f.date+"</td>"+"</tr>"+"<tr>"+"<td>Total</td>"+
+              "<td>: "+f.currency+" "+f.amount +"</td>"+"</tr>"+"<tr>"+"<td>Payment method</td>"+
+                "<td>: Check payments</td>"+"</tr>"
+  );
       
-            lista.innerHTML="";
-            lista.innerHTML +='<h3 class="billing-title">Order Info</h3>';
-        lista.innerHTML +='<table class="order-table">';
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Order number</td>";
-            lista.innerHTML +="<td>: 14567890</td>";
-            lista.innerHTML +="</tr>";
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Date</td>";
-            lista.innerHTML +="<td>: "+f.date+"</td>";
-            lista.innerHTML +="</tr>";
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Total</td>";
-            lista.innerHTML +="<td>: "+f.currency+" "+f.amount +"</td>";
-            lista.innerHTML +="</tr>";
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Payment method</td>";
-            lista.innerHTML +="<td>: Check payments</td>";
-            lista.innerHTML +="</tr>";
-            lista.innerHTML +="</table>";
+           
             lista = document.getElementById("o2");
           
 
-            
+            $("#order2 tbody").append(
+              "<tr>"+"<td>Street</td>"+"<td>: "+f.user.address+"</td>"+" </tr>"+"<tr>"
+                +"<td>City</td>"+"<td>: "+f.user.city+"</td>"+"</tr>"+"<tr>"+"<td>Country</td>"+
+                  "<td>: "+f.user.country+"</td>"+"</tr>"+"<tr>"+"<td>Postcode</td>"+
+                    "<td>: "+f.user.postalcode+"</td>"+"</tr>"
+  );
               
 
 
 
-            lista.innerHTML="";
-            lista.innerHTML +='<h3 class="billing-title">Billing Address</h3>';
-            lista.innerHTML +='<table class="order-table">';
+  $("#order3 tbody").append(
+    "<tr>"+"<td>"+"<h4>Subtotal</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+
+      "<p>$"+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
+        "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: $0.00</p>"+"</td>"+"</tr>"+"<tr>"
+          +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>$"+f.amount+"</h4>"+
+            "</td>"+"</tr>"
+  );
          
-            lista.innerHTML +="<tr>";
-              lista.innerHTML +="<td>Street</td>";
-              lista.innerHTML +="<td>: "+f.user.address+"</td>";
-              lista.innerHTML +=" </tr>";
-              lista.innerHTML +="<tr>";
-                lista.innerHTML +="<td>City</td>";
-                lista.innerHTML +="<td>: "+f.user.city+"</td>";
-                lista.innerHTML +="</tr>";
-                lista.innerHTML +="<tr>";
-                  lista.innerHTML +="<td>Country</td>";
-                  lista.innerHTML +="<td>: "+f.user.country+"</td>";
-                  lista.innerHTML +="</tr>";
-                  lista.innerHTML +="<tr>";
-                    lista.innerHTML +="<td>Postcode</td>";
-                    lista.innerHTML +="<td>: "+f.user.postalcode+"</td>";
-                    lista.innerHTML +="</tr>";
-                    lista.innerHTML +="</table>";
-
-
-
-
-
-                    lista = document.getElementById("o3");
-          
-            lista.innerHTML="";
-            lista.innerHTML='<table  class="order-table">';
-            lista.innerHTML +="<thead>";
-                  
-              lista.innerHTML +="</thead>";
-              lista.innerHTML +="<tbody>";
-                lista.innerHTML +="<tr>";
-                  lista.innerHTML +="<td>";
-                    lista.innerHTML +="<h4>Subtotal</h4>";
-                    lista.innerHTML +="</td>";
-                    lista.innerHTML +="<td>";
-                      lista.innerHTML +="<h5></h5>";
-                      lista.innerHTML +="</td>";
-                      lista.innerHTML +="<td>";
-                        lista.innerHTML +="<p>$"+f.amount+"</p>";
-                        lista.innerHTML +="</td>";
-                        lista.innerHTML +="</tr>";
-                        lista.innerHTML +="<tr>";
-                          lista.innerHTML +="<td>";
-                            lista.innerHTML +="<h4>Shipping</h4>";
-                            lista.innerHTML +="</td>";
-                            lista.innerHTML +="<td>";
-                              lista.innerHTML +="<h5></h5>";
-                              lista.innerHTML +="</td>";
-                              lista.innerHTML +="<td>";
-                                lista.innerHTML +="<p>Flat rate: $0.00</p>";
-                                lista.innerHTML +="</td>";
-                                lista.innerHTML +="</tr>";
-                                lista.innerHTML +="<tr>";
-                                  lista.innerHTML +="<td>";
-                                    lista.innerHTML +="<h4>Total</h4>";
-                                    lista.innerHTML +="</td>";
-                                    lista.innerHTML +="<td>";
-                                      lista.innerHTML +="<h5></h5>";
-                                      lista.innerHTML +="</td>";
-                                      lista.innerHTML +="<td>";
-                                        lista.innerHTML +="<h4>$"+f.amount+"</h4>";
-                                        lista.innerHTML +="</td>";
-                                        lista.innerHTML +="</tr>";
-                                        lista.innerHTML +="</tbody>";
-                                        lista.innerHTML="</table>";
-                  
-
-
+   
 
                                         
                   for(var m=0; m<f.productos.length ; m++){
