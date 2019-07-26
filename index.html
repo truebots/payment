@@ -45,6 +45,15 @@ function obtenerValorParametro(sParametroNombre) {
       }
       return null;
       }
+
+
+      function myFunction(){
+        MessengerExtensions.requestCloseBrowser(function success() {
+                        // webview closed
+                      }, function error(err) {
+                        // an error occurred
+                      });
+      }
       var query = {"e":obtenerValorParametro("extra")};
       var m= decodeURIComponent(atob(query.e).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
@@ -186,7 +195,7 @@ function obtenerValorParametro(sParametroNombre) {
                           <input name="Submit"   class="button button-coupon"      type="submit"  value="Enviar" >
                         </form>
                      
-                   <button   class="button button-coupon">Cancelar</button>
+                   <button   class="button button-coupon" onclick="myFunction()">Cancelar</button>
                        
 
 
