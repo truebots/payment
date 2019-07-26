@@ -211,7 +211,7 @@ function obtenerValorParametro(sParametroNombre) {
           
         var lista = document.getElementById("o1");
         console.log(f);
-          
+          var fe=f.date.split("T");
       
             lista.innerHTML="";
             lista.innerHTML +='<h3 class="billing-title">Order Info</h3>';
@@ -222,7 +222,7 @@ function obtenerValorParametro(sParametroNombre) {
             lista.innerHTML +="</tr><br>";
             lista.innerHTML +="<tr>";
             lista.innerHTML +="<td>Date</td>";
-            lista.innerHTML +="<td>: "+f.date+"</td>";
+            lista.innerHTML +="<td>: "+fe[0]+"</td>";
             lista.innerHTML +="</tr><br>";
             lista.innerHTML +="<tr>";
             lista.innerHTML +="<td>Total</td>";
@@ -264,9 +264,9 @@ function obtenerValorParametro(sParametroNombre) {
 
   $("#order3 tbody").append(
     "<tr>"+"<td>"+"<h4>Subtotal</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+
-      "<p>$"+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
+      "<p>"f.currency+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
         "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: $0.00</p>"+"</td>"+"</tr>"+"<tr>"
-          +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>$"+f.amount+"</h4>"+
+          +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>"+f.currency+f.amount+"</h4>"+
             "</td>"+"</tr>"
   );
          
@@ -275,7 +275,7 @@ function obtenerValorParametro(sParametroNombre) {
                                         
                   for(var m=0; m<f.productos.length ; m++){
 
-
+var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
 
                     $("#productTable tbody").append(
       "<tr>" +
@@ -283,9 +283,9 @@ function obtenerValorParametro(sParametroNombre) {
         '<img src="'+f.productos[m].image_url+'" alt="">'+"</div>"
         +'<div class="media-body">'+"<p>"+f.productos[m].title+"</p>"
         +"</div>"+"</div>"+"</td>" +
-        "<td>"+"<h5>$"+f.productos[m].price+"</h5>"+"</td>" +
-        "<td>"+"<h5>$"+f.productos[m].quantity+"</h5>"+"</td>" +
-        "<td>"+"<h5>$"+parseInt(f.productos[m].amount)*parseInt(f.productos[m].quantity)+"</h5>"+"</td>" +
+        "<td>"+"<h5>"+f.currency+f.productos[m].price+"</h5>"+"</td>" +
+        "<td>"+"<h5>"+f.productos[m].quantity+"</h5>"+"</td>" +
+        "<td>"+"<h5>$"+total+"</h5>"+"</td>" +
       "</tr>"
   );
                     
