@@ -78,7 +78,13 @@ function obtenerValorParametro(sParametroNombre) {
                         
                 success: function(t) {
                     console.log(t);
+                    document.getElementById("referenceCode").value = t.id;
+                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+f.amount+"~"+f.currency;
+                    var signature=hex_md5(sig);
+                    console.log("sig-"+signature);
+                    document.getElementById("signature").value = signature;
                     
+                  
 
                 },
                 error: function(t) {
@@ -268,15 +274,23 @@ function obtenerValorParametro(sParametroNombre) {
                     lista.innerHTML +="<td>Postcode</td>";
                     lista.innerHTML +="<td>: "+f.user.postalcode+"</td>";
                     lista.innerHTML +="</tr><br>";
+                    lista.innerHTML +="<tr>";
+                    lista.innerHTML +="<td>Email</td>";
+                    lista.innerHTML +="<td>: "+f.user.email+"</td>";
+                    lista.innerHTML +="</tr><br>";
+                    lista.innerHTML +="<tr>";
+                    lista.innerHTML +="<td>Cellphone</td>";
+                    lista.innerHTML +="<td>: "+f.user.tel+"</td>";
+                    lista.innerHTML +="</tr><br>";
                     lista.innerHTML +="</table>";
       
-
-
+var tpor=(parseInt(f.tax)*parseInt(f.taxReturnBase))/100;
+var tax=(parseInt(f.amount)/parseInt(f.taxReturnBase))*tpor;
 
   $("#order3 tbody").append(
     "<tr>"+"<td>"+"<h4>Subtotal</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+
       "<p>"+f.currency+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
-        "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: "+f.currency+"0.00</p>"+"</td>"+"</tr>"+"<tr>"
+        "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: "+f.currency+tax+"</p>"+"</td>"+"</tr>"+"<tr>"
           +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>"+f.currency+f.amount+"</h4>"+
             "</td>"+"</tr>"
   );
@@ -307,8 +321,15 @@ var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
                   
                   
                   document.getElementById("amount").value = f.amount;
-                  document.getElementById("extra1").value =query.e;
-
+                  document.getElementById("merchantId").value = f.merchantId;
+                  document.getElementById("accountId").value = f.accountId;
+                  document.getElementById("description").value = f.description;
+                  document.getElementById("tax").value = f.tax;
+                  document.getElementById("taxReturnBase").value = f.taxReturnBase;
+                  document.getElementById("currency").value = f.currency;
+                  document.getElementById("buyerEmail").value = f.buyerEmail;
+                  document.getElementById("payerFullName").value = f.payerFullName;
+                  
 
 
  
