@@ -79,7 +79,7 @@ function obtenerValorParametro(sParametroNombre) {
                 success: function(t) {
                     console.log(t);
                     document.getElementById("referenceCode").value = t.id;
-                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+f.amount+"~"+f.currency;
+                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+document.getElementById("amount").value+"~"+f.currency;
                     var signature=hex_md5(sig);
                     console.log("sig-"+signature);
                     document.getElementById("signature").value = signature;
@@ -186,20 +186,23 @@ function obtenerValorParametro(sParametroNombre) {
                  <section  style="float: center">    
                 
                     <form method="post" action="https://sandbox.checkout.payulatam.com/ppp-web-gateway-payu/">
-                      <input name="merchantId"    type="hidden"  value="508029"   >
-                      <input name="accountId"     type="hidden"  value="512321" >
-                      <input name="description"   type="hidden"  value="Test PAYU"  >
-                      <input name="referenceCode" type="hidden"  value="TestPayU" >
+                      <input id="merchantId" name="merchantId"    type="hidden"  value="508029"   >
+                      <input id="accountId" name="accountId"     type="hidden"  value="512321" >
+                      <input id="description" name="description"   type="hidden"  value="Test PAYU"  >
+                      <input id="referenceCode" name="referenceCode" type="hidden"  value="TestPayU" >
                       <input id="amount" name="amount"        type="hidden"  value="20000"   >
-                      <input name="tax"           type="hidden"  value="3193"  >
-                      <input name="taxReturnBase" type="hidden"  value="16806" >
-                      <input name="currency"      type="hidden"  value="COP" >
-                      <input name="signature"     type="hidden"  value="7ee7cf808ce6a39b17481c54f2c57acc"  >
-                      <input name="test"          type="hidden"  value="1" >
-                      <input name="buyerEmail"    type="hidden"  value="test@test.com" >
-                      <input name="responseUrl"    type="hidden"  value="http://www.test.com/response" >
-                      <input name="confirmationUrl"    type="hidden"  value="http://www.test.com/confirmation" >
+                      <input id="tax" name="tax"           type="hidden"  value="3193"  >
+                      <input id="taxReturnBase" name="taxReturnBase" type="hidden"  value="16806" >
+                      <input id="currency" name="currency"      type="hidden"  value="COP" >
+                      <input id="signature" name="signature"     type="hidden"  value="7ee7cf808ce6a39b17481c54f2c57acc"  >
+                      <input id="test" name="test"          type="hidden"  value="1" >
+                      <input id="buyerEmail" name="buyerEmail"    type="hidden"  value="test@test.com" >
+                      <input id="payerFullName" name="payerFullName"    type="hidden"  value="test@test.com" >
+                      
+                      <input id="confirmationUrl" name="confirmationUrl"    type="hidden"  value="http://www.test.com/confirmation" >
                       <input id="extra1" name="extra1"    type="hidden"  value="http://www.test.com/confirmation" >
+                      <input id="extra2" name="extra2"    type="hidden"  value="http://www.test.com/confirmation" >
+                      <input id="extra3" name="extra3"    type="hidden"  value="http://www.test.com/confirmation" >
                       
                       <input name="Submit"   class="button button-coupon"   onclick="myFunction2()"   type="submit"  value="Enviar" >
                     </form>
@@ -284,14 +287,19 @@ function obtenerValorParametro(sParametroNombre) {
                     lista.innerHTML +="</tr><br>";
                     lista.innerHTML +="</table>";
       
-var tpor=(parseInt(f.tax)*parseInt(f.taxReturnBase))/100;
-var tax=(parseInt(f.amount)/parseInt(f.taxReturnBase))*tpor;
-
+var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
+var taxr=(parseInt(f.amount)/parseInt(f.taxReturnBase))*tpor;
+var amountcal=tax+parseInt(f.amount);
+document.getElementById("tax").value = tax;
+document.getElementById("taxReturnBase").value = parseInt(f.amount);
+document.getElementById("amount").value = amountcal;
+                  
+                  
   $("#order3 tbody").append(
     "<tr>"+"<td>"+"<h4>Subtotal</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+
       "<p>"+f.currency+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
         "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: "+f.currency+tax+"</p>"+"</td>"+"</tr>"+"<tr>"
-          +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>"+f.currency+f.amount+"</h4>"+
+          +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>"+f.currency+amountcal+"</h4>"+
             "</td>"+"</tr>"
   );
          
@@ -320,15 +328,16 @@ var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
                   }
                   
                   
-                  document.getElementById("amount").value = f.amount;
                   document.getElementById("merchantId").value = f.merchantId;
                   document.getElementById("accountId").value = f.accountId;
                   document.getElementById("description").value = f.description;
-                  document.getElementById("tax").value = f.tax;
-                  document.getElementById("taxReturnBase").value = f.taxReturnBase;
                   document.getElementById("currency").value = f.currency;
                   document.getElementById("buyerEmail").value = f.buyerEmail;
                   document.getElementById("payerFullName").value = f.payerFullName;
+                  document.getElementById("confirmationUrl").value = f.confirmationUrl;
+                  document.getElementById("extra1").value = f.googlesheetId;
+                  document.getElementById("extra2").value = f.broadcastId;
+                  document.getElementById("extra3").value = f.botId;
                   
 
 
