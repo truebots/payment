@@ -205,7 +205,7 @@ function obtenerValorParametro(sParametroNombre) {
                       <input id="extra2" name="extra2"    type="hidden"  value="http://www.test.com/confirmation" >
                       <input id="extra3" name="extra3"    type="hidden"  value="http://www.test.com/confirmation" >
                       
-                      <input name="Submit"   class="button button-coupon"   onclick="myFunction2()"   type="submit"  value="Enviar" >
+                      <input id="sub2" name="Submit"   class="button button-coupon"   onclick="myFunction2()"   type="submit"  value="Enviar" >
                     </form>
                    <button   class="button button-coupon" onclick="myFunction()">Cancelar</button>
                        
@@ -340,7 +340,7 @@ var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
                   document.getElementById("extra3").value = f.muserID+"-"+f.botId;
                   
 
-
+                  document.getElementById("sub2").click();
  
        
 
