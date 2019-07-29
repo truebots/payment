@@ -79,11 +79,12 @@ function obtenerValorParametro(sParametroNombre) {
                         
                 success: function(t) {
                     console.log(t);
-                    document.getElementById("referenceCode").value = t.id;
-                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
+                    document.getElementById("referenceCode").value = "TestPayU";
+                    var sig=f.apiKey+"~"+f.merchantId+"~"+"TestPayU"+"~"+amountcal+"~"+f.currency;
                     var signature=hex_md5(sig);
                     console.log("sig-"+signature);
-                                    
+                    document.getElementById("signature").value = signature;
+                    
                   
 
                 },
