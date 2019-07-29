@@ -61,7 +61,8 @@ function obtenerValorParametro(sParametroNombre) {
             var f=JSON.parse(m);
             var lista = document.getElementById("o1");
             console.log(f);
-              
+            var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
+            var amountcal=tax+parseInt(f.amount);
   
             function myFunction2(){
         
@@ -79,7 +80,7 @@ function obtenerValorParametro(sParametroNombre) {
                 success: function(t) {
                     console.log(t);
                     document.getElementById("referenceCode").value = t.id;
-                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+document.getElementById("amount").value+"~"+f.currency;
+                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
                     var signature=hex_md5(sig);
                     console.log("sig-"+signature);
                     document.getElementById("signature").value = signature;
