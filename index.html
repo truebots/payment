@@ -288,7 +288,6 @@ function obtenerValorParametro(sParametroNombre) {
                     lista.innerHTML +="</table>";
       
 var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
-var taxr=(parseInt(f.amount)/parseInt(f.taxReturnBase))*tpor;
 var amountcal=tax+parseInt(f.amount);
 document.getElementById("tax").value = tax;
 document.getElementById("taxReturnBase").value = parseInt(f.amount);
