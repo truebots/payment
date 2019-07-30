@@ -51,15 +51,16 @@ function obtenerValorParametro(sParametroNombre) {
 
 </script>
 <style>
-.loader {
+.myloading {
     position: fixed;
-    left: 0px;
-    top: 0px;
     width: 100%;
     height: 100%;
-    z-index: 9999;
-    background: url('images/pageLoader.gif') 50% 50% no-repeat rgb(249,249,249);
-    opacity: .8;
+    background: rgba(255,255,255,0.8) !important;
+    background: #ffffff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    display: none;
+    top: 0;
+    z-index: 9999999;
 }
 </style>
 
@@ -72,10 +73,23 @@ function obtenerValorParametro(sParametroNombre) {
 
  <!--================Cart Area =================-->
  <section>
-  <div class="loader"></div>
+  <div id="myLoading" class="myloading" payu-loading="" style="display: none;">
+    
+    <div class="animate-loading">
+        <img class="animate-image" src="/loading-.png">
+        <!--[if lt IE 9]>
+                <img  src="/ppp-web-gateway-payu/public/dist/images/common/gif-load.gif" />
+        <![endif]-->
+    </div>
 
-
- </section>
+<div class="message-loading no-show" style="display: block;">
+    <p class="message-loading-text-big ng-scope" translate="text.loading.Default">Gracias por esperar, </p>
+    <p id="message-loading-text" class="message-loading-text-small ng-binding" style="display: block;"></p>
+    <!--[if lt IE 9]>
+        <p class="message-loading-text-big browsehappy" style="width: 80%;margin:auto;" translate="index.browser_not_supported">La versión de tu navegador no es la ideal para ver correctamente este portal. Por favor actualiza tu navegador o ingresa al portal desde un navegador diferente.</p>
+    <![endif]-->
+</div>
+</div>
 
  <section  style="float: center">    
                 
