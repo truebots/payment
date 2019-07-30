@@ -47,60 +47,6 @@ function obtenerValorParametro(sParametroNombre) {
       }
 
 
-      function myFunction(){
-        MessengerExtensions.requestCloseBrowser(function success() {
-                        // webview closed
-                      }, function error(err) {
-                        // an error occurred
-                      });
-      }
-      var query = {"e":obtenerValorParametro("extra")};
-      var m= decodeURIComponent(atob(query.e).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-            var f=JSON.parse(m);
-            var lista = document.getElementById("o1");
-            console.log(f);
-            var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
-            var amountcal=tax+parseInt(f.amount);
-  
-            function myFunction2(){
-        
-              
-              ($.ajax({
-                type: "GET",
-                url: "https://us-central1-secure-potion-243418.cloudfunctions.net/ES-function-addPurchaseOrder?callback=?",
-                data: {
-                            extra: query.e
-                            
-                },
-                dataType: "jsonp",
-                crossDomain:true,
-                        
-                success: function(t) {
-                    console.log(t);
-                    document.getElementById("referenceCode").value = t.id;
-                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
-                    var signature=hex_md5(sig);
-                    console.log("sig-"+signature);
-                    document.getElementById("signature").value = signature;
-                    
-                  
-
-                },
-                error: function(t) {
-                    console.log(t);
-                    
-
-
-                }
-            }));
-      }
-
-
-      
-           
-
 </script>
 
 
@@ -222,7 +168,37 @@ function obtenerValorParametro(sParametroNombre) {
       </div>
       <script>
 
-  var query = {"e":obtenerValorParametro("extra")};
+var query = {"e":obtenerValorParametro("extra")};
+      var m= decodeURIComponent(atob(query.e).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+            var f=JSON.parse(m);
+            var lista = document.getElementById("o1");
+            console.log(f);
+            var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
+            var amountcal=tax+parseInt(f.amount);
+  
+            
+              
+              ($.ajax({
+                type: "GET",
+                url: "https://us-central1-secure-potion-243418.cloudfunctions.net/ES-function-addPurchaseOrder?callback=?",
+                data: {
+                            extra: query.e
+                            
+                },
+                dataType: "jsonp",
+                crossDomain:true,
+                        
+                success: function(t) {
+                    console.log(t);
+                    document.getElementById("referenceCode").value = t.id;
+                    var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
+                    var signature=hex_md5(sig);
+                    console.log("sig-"+signature);
+                    document.getElementById("signature").value = signature;
+                    
+                    var query = {"e":obtenerValorParametro("extra")};
   m= decodeURIComponent(atob(query.e).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
@@ -344,6 +320,17 @@ var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
  
        
 
+
+                },
+                error: function(t) {
+                    console.log(t);
+                    
+
+
+                }
+            }));
+      
+  
 </script>
 
 
