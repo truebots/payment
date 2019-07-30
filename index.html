@@ -191,6 +191,15 @@ var query = {"e":obtenerValorParametro("extra")};
                 crossDomain:true,
                         
                 success: function(t) {
+                  var query = {"e":obtenerValorParametro("extra")};
+      var m= decodeURIComponent(atob(query.e).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+            var f=JSON.parse(m);
+            var lista = document.getElementById("o1");
+            console.log(f);
+            var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
+            var amountcal=tax+parseInt(f.amount);
                     console.log(t);
                     document.getElementById("referenceCode").value = t.id;
                     var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
