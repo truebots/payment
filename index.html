@@ -18,7 +18,8 @@
     <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
     
     <link rel="stylesheet" href="css/style.css">
-    
+    <script language="JavaScript" src="md5.js"></script>
+
 
 
 
@@ -203,7 +204,7 @@ var query = {"e":obtenerValorParametro("extra")};
                     console.log(t);
                     document.getElementById("referenceCode").value = t.id;
                     var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
-                    var signature=hex_md5(sig);
+                    var signature=calcMD5(sig);
                     console.log("sig-"+signature);
                     document.getElementById("signature").value = signature;
                     
