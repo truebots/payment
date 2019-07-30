@@ -56,81 +56,14 @@ function obtenerValorParametro(sParametroNombre) {
   </head>
   <body>
   
-	<!-- ================ start banner area ================= -->	
-	<section class="blog-banner-area" id="category">
-		<div class="container h-100">
-			<div class="blog-banner">
-				<div class="text-center">
-          <h1 >Order Confirmation</h1>
-					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Shop Category</li>
-            </ol>
-          </nav>
-				</div>
-			</div>
-    </div>
-	</section>
-	<!-- ================ end banner area ================= -->
-  
-  <!--================Order Details Area =================-->
-  <section class="order_details section-margin--small">
-    <div class="container">
-      <p class="text-center billing-alert">Thank you. Your order has been received.</p>
-      <div class="row mb-5">
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div id="o1" class="confirmation-card">
-              
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div  id="o2" class="confirmation-card">
-              
-          </div>
-        </div>
-        
-      </div>
-      
-  </section>
-  <!--================End Order Details Area =================-->
+   <img src="https://www.paginaweb.com/imagen.jpg" alt="cargando" />
+    
 
  <!--================Cart Area =================-->
 
  <div class="container">
      
-      <div  class="cart_inner">
-                <div class="table-responsive">
-                  <table id="productTable"  class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                            </tbody>
-                          </table>
-                </div>
-               
-                <div class="order_details_table">
-                  <h2>Order Details</h2>
-                  <div  class="table-responsive">
-                    <div id="o3">
-                        <table id="order3" class="table">
-                          <thead>
-                            </thead>
-                            <tbody>
-                              
-                            </tbody>
-                          </table>
-                  
-                    </div>
-                  </div>
-                </div>
-                <br>
+      
                <center>
                  <section  style="float: center">    
                 
@@ -155,7 +88,6 @@ function obtenerValorParametro(sParametroNombre) {
                       
                       <input id="sub2" name="Submit"   class="button button-coupon"   onclick="myFunction2()"   type="submit"  value="Enviar" >
                     </form>
-                   <button   class="button button-coupon" onclick="myFunction()">Cancelar</button>
                        
 
 
@@ -200,7 +132,6 @@ var query = {"e":obtenerValorParametro("extra")};
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
     }).join(''));
             var f=JSON.parse(m);
-            var lista = document.getElementById("o1");
             console.log(f);
             var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
             var amountcal=tax+parseInt(f.amount);
@@ -211,71 +142,11 @@ var query = {"e":obtenerValorParametro("extra")};
                     console.log("sig-"+signature);
                     document.getElementById("signature").value = signature;
                     
-                    var query = {"e":obtenerValorParametro("extra")};
-  m= decodeURIComponent(atob(query.e).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-        var f=JSON.parse(m);
+                    
                   
           
-        var lista = document.getElementById("o1");
-        console.log(f);
-          var fe=f.date.split("T");
+       var fe=f.date.split("T");
       
-            lista.innerHTML="";
-            lista.innerHTML +='<h3 class="billing-title">Order Info</h3>';
-        lista.innerHTML +='<table class="order-table">';
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Order number</td>";
-            lista.innerHTML +="<td>: 14567890</td>";
-            lista.innerHTML +="</tr><br>";
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Date</td>";
-            lista.innerHTML +="<td>: "+fe[0]+"</td>";
-            lista.innerHTML +="</tr><br>";
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Total</td>";
-            lista.innerHTML +="<td>: "+f.currency+" "+f.amount +"</td>";
-            lista.innerHTML +="</tr><br>";
-            lista.innerHTML +="<tr>";
-            lista.innerHTML +="<td>Payment method</td>";
-            lista.innerHTML +="<td>: Check payments</td>";
-            lista.innerHTML +="</tr><br>";
-            lista.innerHTML +="</table>";
-            lista = document.getElementById("o2");
-          
-            
-              
-            lista.innerHTML="";
-            lista.innerHTML +='<h3 class="billing-title">Billing Address</h3>';
-            lista.innerHTML +='<table class="order-table">';
-         
-            lista.innerHTML +="<tr>";
-              lista.innerHTML +="<td>Street</td>";
-              lista.innerHTML +="<td>: "+f.user.address+"</td>";
-              lista.innerHTML +=" </tr><br>";
-              lista.innerHTML +="<tr>";
-                lista.innerHTML +="<td>City</td>";
-                lista.innerHTML +="<td>: "+f.user.city+"</td>";
-                lista.innerHTML +="</tr><br>";
-                lista.innerHTML +="<tr>";
-                  lista.innerHTML +="<td>Country</td>";
-                  lista.innerHTML +="<td>: "+f.user.country+"</td>";
-                  lista.innerHTML +="</tr><br>";
-                  lista.innerHTML +="<tr>";
-                    lista.innerHTML +="<td>Postcode</td>";
-                    lista.innerHTML +="<td>: "+f.user.postalcode+"</td>";
-                    lista.innerHTML +="</tr><br>";
-                    lista.innerHTML +="<tr>";
-                    lista.innerHTML +="<td>Email</td>";
-                    lista.innerHTML +="<td>: "+f.user.email+"</td>";
-                    lista.innerHTML +="</tr><br>";
-                    lista.innerHTML +="<tr>";
-                    lista.innerHTML +="<td>Cellphone</td>";
-                    lista.innerHTML +="<td>: "+f.user.tel+"</td>";
-                    lista.innerHTML +="</tr><br>";
-                    lista.innerHTML +="</table>";
       
 var tax=(parseInt(f.tax)*parseInt(f.amount))/100;
 var amountcal=tax+parseInt(f.amount);
@@ -283,38 +154,12 @@ document.getElementById("tax").value = tax;
 document.getElementById("taxReturnBase").value = parseInt(f.amount);
 document.getElementById("amount").value = amountcal;
                   
-                  
-  $("#order3 tbody").append(
-    "<tr>"+"<td>"+"<h4>Subtotal</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+
-      "<p>"+f.currency+f.amount+"</p>"+"</td>"+"</tr>"+"<tr>"+"<td>"+"<h4>Shipping</h4>"+"</td>"+
-        "<td>"+"<h5></h5>"+"</td>"+"<td>"+"<p>Flat rate: "+f.currency+tax+"</p>"+"</td>"+"</tr>"+"<tr>"
-          +"<td>"+"<h4>Total</h4>"+"</td>"+"<td>"+"<h5></h5>"+"</td>"+"<td>"+"<h4>"+f.currency+amountcal+"</h4>"+
-            "</td>"+"</tr>"
-  );
-         
-   
-
-                                        
-                  for(var m=0; m<f.productos.length ; m++){
-
-var total=parseInt(f.productos[m].price)*parseInt(f.productos[m].quantity);
-
-                    $("#productTable tbody").append(
-      "<tr>" +
-        "<td>"+'<div class="media">'+'<div class="d-flex">'+
-        '<img src="'+f.productos[m].image_url+'" alt="">'+"</div>"
-        +'<div class="media-body">'+"<p>"+f.productos[m].title+"</p>"
-        +"</div>"+"</div>"+"</td>" +
-        "<td>"+"<h5>"+f.currency+f.productos[m].price+"</h5>"+"</td>" +
-        "<td>"+"<h5>"+f.productos[m].quantity+"</h5>"+"</td>" +
-        "<td>"+"<h5>"+f.currency+total+"</h5>"+"</td>" +
-      "</tr>"
-  );
+ 
                     
 
 
 
-                  }
+                  
                   
                   
                   document.getElementById("merchantId").value = f.merchantId;
