@@ -19,6 +19,7 @@
     
     <link rel="stylesheet" href="css/style.css">
     <script  src="md5.js" type="text/javascript"></script>
+    <script src="md5.pack.js" type="text/javascript"></script>
 
 
 
@@ -167,6 +168,8 @@ function obtenerValorParametro(sParametroNombre) {
               <br>
           </div>
       </div>
+      <script src="md5.pack.js" type="text/javascript"></script>
+
       <script >
 
 var query = {"e":obtenerValorParametro("extra")};
@@ -204,7 +207,7 @@ var query = {"e":obtenerValorParametro("extra")};
                     console.log(t);
                     document.getElementById("referenceCode").value = t.id;
                     var sig=f.apiKey+"~"+f.merchantId+"~"+t.id+"~"+amountcal+"~"+f.currency;
-                    var signature=calcMD5(sig);
+                    var signature=md5(sig);
                     console.log("sig-"+signature);
                     document.getElementById("signature").value = signature;
                     
